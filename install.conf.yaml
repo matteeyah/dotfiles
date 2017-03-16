@@ -5,8 +5,10 @@
 - clean: ['~']
  
 - link:
+    ~/.zshrc: zshrc 
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
   - [sh ./script/brew.sh, Installing brew]
   - [sh ./script/install.sh, Installing various packages]
+  - [zsh -c 'source ~/.zshrc', Initializing zsh]
