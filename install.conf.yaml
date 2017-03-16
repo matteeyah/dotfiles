@@ -6,9 +6,14 @@
  
 - link:
     ~/.zshrc: zshrc 
+    ~/.vimrc: vimrc
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
   - [sh ./script/brew.sh, Installing brew]
   - [sh ./script/install.sh, Installing various packages]
+  - 
+    command: sh ./script/vim.sh
+    description: Setting up vim - Install vim-plug
+    stderr: true
   - [zsh -c 'source ~/.zshrc', Initializing zsh]
