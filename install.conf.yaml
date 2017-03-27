@@ -9,11 +9,15 @@
     ~/.vimrc: vimrc
 
 - shell:
-  - [git submodule update --init --recursive, Installing submodules]
-  - [sh ./script/brew.sh, Installing brew]
-  - [sh ./script/install.sh, Installing various packages]
+  - [git submodule update --init --recursive, Updating submodules]
   - 
-    command: sh ./script/vim.sh
+    command: bash ./script/install.sh
+    description: Installing system packages
+    stdout: true
+    stdin: true
+    stderr: true
+  - 
+    command: bash ./script/vim.sh
     description: Setting up vim - Install vim-plug
     stderr: true
   - [zsh -c 'source ~/.zshrc', Initializing zsh]

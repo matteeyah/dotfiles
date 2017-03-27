@@ -1,10 +1,9 @@
-brew install tig
-brew install zsh
-brew install antigen
-brew install rbenv
-brew install vim
-
-brew cask install font-fira-code
-brew cask install docker
-
-rbenv install 2.4.0
+if [[ "$OSTYPE" = "darwin"* ]]; then
+    /bin/bash script/install/macos.sh
+elif [[ "$OSTYPE" = "linux-gnu" ]]; then
+    case $(grep ^ID= /etc/os-release | cut -d = -f2) in
+        debian|ubuntu)
+            /bin/bash script/install/debian.sh
+            ;;
+    esac 
+fi

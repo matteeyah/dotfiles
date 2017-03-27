@@ -14,7 +14,14 @@ antigen apply
 # The current user is the default user
 export DEFAULT_USER=`whoami`
 # Enable CLI colors
-export CLICOLOR=1
+case $OSTYPE in
+  "darwin"*)
+    export CLICOLOR=1
+    ;;
+  "linux-gnu")
+    alias ls='ls --color=auto'
+    ;;
+esac
 # Use vim as the default editor
 export EDITOR=vim
 ### Variables ###
