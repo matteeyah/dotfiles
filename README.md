@@ -4,11 +4,11 @@ Personal dotfiles, bootstrapped by [dotbot](https://github.com/anishathalye/dotb
 
 ## Installation
 
-To install the dotfiles just clone this repo and run the install script.
+To install the dotfiles just clone this repo and run the setup script.
 ```bash
 git clone https://github.com/cmattrex/dotfiles ~/.dotfiles
 cd ~/.dotfiles
-./install
+sh setup.sh
 ```
 
 ## Updating
