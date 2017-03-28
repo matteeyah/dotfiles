@@ -28,6 +28,6 @@ export EDITOR=vim
 
 ### Ruby ###
 # Set up rbenv
-export PATH="/Users/cmattrex/.rbenv/shims:${PATH}"
+export PATH="$HOME/.rbenv/shims:${PATH}"
 command rbenv rehash 2>/dev/null
 ### Ruby ###
