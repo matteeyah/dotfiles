@@ -8,5 +8,3 @@ brew install vim
 brew cask install font-fira-code
 brew cask install docker
 brew cask install atom
-
-rbenv install 2.4.0

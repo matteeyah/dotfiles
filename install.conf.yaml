@@ -21,3 +21,4 @@
     description: Setting up vim - Install vim-plug
     stderr: true
   - [zsh -c 'source ~/.zshrc', Initializing zsh]
+  - [bash script/ruby.sh, Installing ruby]
