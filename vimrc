@@ -45,9 +45,15 @@ nmap <leader>n :NERDTreeToggle<CR>
 " tagbar
 nmap <leader>t :TagbarToggle<CR>
 " easymotion
-nmap <Leader>f <Plug>(easymotion-bd-f) " move to char
-nmap <Leader>L <Plug>(easymotion-bd-jk) " move to line
-nmap <Leader>w <Plug>(easymotion-bd-w) " move to word
+" Move to char
+map <leader>f <Plug>(easymotion-bd-d)
+nmap <leader>f <Plug>(easymotion-overwin-f)
+" Move to line
+map <leader>L <Plug>(easymotion-bd-jk)
+nmap <leader>L <Plug>(easymotion-overwin-line)
+" Move to word
+map <leader>w <Plug>(easymotion-bd-w)
+nmap <leader>w <Plug>(easymotion-overwin-w)
 
 """ vim-airline
 let g:airline_powerline_fonts = 1
