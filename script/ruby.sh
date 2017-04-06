@@ -1,2 +1,2 @@
-# Install ruby 2.4.0
+# Install ruby
 rbenv install 2.4.0

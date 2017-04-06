@@ -6,6 +6,7 @@ export DEBIAN_FRONTEND="noninteractive"
 sudo apt -y install tig
 sudo apt -y install zsh
 sudo apt -y install rbenv
+sudo apt -y install pyenv
 # Install the ruby-build plugin for rbenv 
 git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
 sudo apt -y install curl

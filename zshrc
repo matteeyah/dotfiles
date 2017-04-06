@@ -32,6 +32,12 @@ export PATH="$HOME/.rbenv/shims:${PATH}"
 command rbenv rehash 2>/dev/null
 ### Ruby ###
 
+### Python ###
+# Set up pyenv
+export PATH="$HOME/.pyenv/shims:${PATH}"
+command pyenv rehash 2>/dev/null
+### Python ###
+
 ### fzf ###
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 ### fzf ###
