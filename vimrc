@@ -22,8 +22,6 @@ set splitbelow
 set splitright
 set hlsearch " highlight search results
 set showmatch " highlight matching parenthesis
-" cancel out of a search with <ESC>
-nmap <silent> <Esc> :nohlsearch<Bar>:echo<CR>
 
 """ theme
 if has('gui_running')
@@ -34,7 +32,9 @@ endif
 set background=dark
 colorscheme solarized
 
-""" mappings
+"" mappings
+" cancel out of a search with <ESC>
+nmap <silent> <Esc> :nohlsearch<Bar>:echo<CR>
 " sane window switching
 map <leader>h :wincmd h<CR>
 map <leader>j :wincmd j<CR>
@@ -63,3 +63,4 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+let g:syntastic_python_checkers = ['pylint', 'mypy']

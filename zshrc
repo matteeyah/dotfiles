@@ -31,3 +31,7 @@ export EDITOR=vim
 export PATH="$HOME/.rbenv/shims:${PATH}"
 command rbenv rehash 2>/dev/null
 ### Ruby ###
+
+### fzf ###
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+### fzf ###

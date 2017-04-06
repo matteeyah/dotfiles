@@ -14,5 +14,8 @@ Plug 'easymotion/vim-easymotion'
 Plug 'majutsushi/tagbar'
 Plug 'rizzatti/dash.vim'
 Plug 'vim-airline/vim-airline'
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
 call plug#end()
