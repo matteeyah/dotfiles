@@ -2,7 +2,6 @@
 source ~/.dotfiles/vim/plug.vim
 
 """ basics
-let mapleader=" " " set <leader> key to <SPACE>
 set backspace=2 " backspace deletes in insert mode
 set nobackup
 set nowritebackup
@@ -16,7 +15,6 @@ set nojoinspaces " use one space after punctuation
 set textwidth=80
 set colorcolumn=+1
 set number
-set numberwidth=5
 " open splits below and righ
 set splitbelow
 set splitright
@@ -32,35 +30,47 @@ endif
 set background=dark
 colorscheme solarized
 
-"" mappings
-" cancel out of a search with <ESC>
-nmap <silent> <Esc> :nohlsearch<Bar>:echo<CR>
-" sane window switching
-map <leader>h :wincmd h<CR>
-map <leader>j :wincmd j<CR>
-map <leader>k :wincmd k<CR>
-map <leader>l :wincmd l<CR>
-" NERDTree
-nmap <leader>n :NERDTreeToggle<CR>
-" tagbar
-nmap <leader>t :TagbarToggle<CR>
-" easymotion
-" Move to char
-map <leader>f <Plug>(easymotion-bd-d)
-nmap <leader>f <Plug>(easymotion-overwin-f)
-" Move to line
-map <leader>L <Plug>(easymotion-bd-jk)
-nmap <leader>L <Plug>(easymotion-overwin-line)
-" Move to word
-map <leader>w <Plug>(easymotion-bd-w)
-nmap <leader>w <Plug>(easymotion-overwin-w)
-
 """ vim-airline
 let g:airline_powerline_fonts = 1
+
+""" YCM
+let g:ycm_global_ycm_extra_conf = '~/.vim/plugged/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+let g:ycm_autoclose_preview_window_after_completion=1
 
 """ syntastic
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-let g:syntastic_python_checkers = ['pylint', 'mypy']
+let g:syntastic_ruby_checkers = ['rubocop']
+
+""" mappings
+let mapleader="," " set <leader> key to <SPACE>
+" cancel out of a search with <ESC>
+nmap <silent> <Esc> :nohlsearch<Bar>:echo<CR>
+" sane window switching
+nmap <c-h> :wincmd h<CR>
+nmap <c-j> :wincmd j<CR>
+nmap <c-k> :wincmd k<CR>
+nmap <c-l> :wincmd l<CR>
+" toggles
+nmap - :NERDTreeToggle<CR>
+nmap <leader>tt :TagbarToggle<CR>
+" easymotion
+" Move to char
+nmap <leader>ec <Plug>(easymotion-overwin-f)
+" Move to line
+nmap <leader>el <Plug>(easymotion-overwin-line)
+" Move to word
+nmap <leader>ew <Plug>(easymotion-overwin-w)
+" git
+nmap <leader>gs :Gstatus<CR>
+nmap <leader>gp :Gpull<CR>
+nmap <leader>gu :Gpush<CR>
+nmap <leader>gc :Gcommit<CR>
+nmap <leader>gl :Glog<CR>
+nmap <leader>gb :Gblame<CR>
+
+nmap <leader>ff :Files<CR>
+nmap <leader>fg :GFiles<CR>
+nmap <leader>fa :Ag<CR>

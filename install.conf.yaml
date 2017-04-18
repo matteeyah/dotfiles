@@ -3,20 +3,20 @@
       relink: true
 
 - clean: ['~']
- 
+
 - link:
-    ~/.zshrc: zshrc 
+    ~/.zshrc: zshrc
     ~/.vimrc: vimrc
 
 - shell:
   - [git submodule update --init --recursive, Updating submodules]
-  - 
+  -
     command: bash ./script/install.sh
     description: Installing system packages
     stdout: true
     stdin: true
     stderr: true
-  - 
+  -
     command: bash ./script/vim.sh
     description: Setting up vim - Install vim-plug
     stderr: true
