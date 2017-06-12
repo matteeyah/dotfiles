@@ -30,22 +30,16 @@ endif
 set background=dark
 colorscheme solarized
 
-""" vim-airline
-let g:airline_powerline_fonts = 1
+""" MUCopmlete
+set completeopt+=menuone,noinsert,preview
+set shortmess+=c
+let g:mucomplete#enable_auto_at_startup = 1
+autocmd CompleteDone * pclose
+" clang_complete
+let g:clang_library_path='/usr/local/opt/llvm/lib/libclang.dylib'
+let g:clang_complete_auto = 1
 
-""" YCM
-let g:ycm_global_ycm_extra_conf = '~/.vim/plugged/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
-let g:ycm_autoclose_preview_window_after_completion=1
-
-""" syntastic
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_ruby_checkers = ['rubocop']
-
-""" mappings
-let mapleader="," " set <leader> key to <SPACE>
+let mapleader="," " set <leader> key to <,>
 " cancel out of a search with <ESC>
 nmap <silent> <Esc> :nohlsearch<Bar>:echo<CR>
 " sane window switching
@@ -54,7 +48,6 @@ nmap <c-j> :wincmd j<CR>
 nmap <c-k> :wincmd k<CR>
 nmap <c-l> :wincmd l<CR>
 " toggles
-nmap - :NERDTreeToggle<CR>
 nmap <leader>tt :TagbarToggle<CR>
 " easymotion
 " Move to char
