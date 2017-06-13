@@ -5,6 +5,7 @@ export DEBIAN_FRONTEND="noninteractive"
 
 sudo apt -y install tig
 sudo apt -y install zsh
+sudo apt -y install vim
 sudo apt -y install rbenv
 # Install the ruby-build plugin for rbenv
 git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
