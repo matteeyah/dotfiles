@@ -5,7 +5,8 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 # Completions bundle
 antigen bundle zsh-users/zsh-completions
 # Load the theme.
-POWERLEVEL9K_INSTALLATION_PATH=$HOME/.antigen/repos/https-COLON--SLASH--SLASH-github.com-SLASH-bhilburn-SLASH-powerlevel9k.git antigen theme bhilburn/powerlevel9k powerlevel9k 
+antigen bundle mafredri/zsh-async
+antigen bundle sindresorhus/pure
 # Tell Antigen that you're done.
 antigen apply
 ### Antigen ###
