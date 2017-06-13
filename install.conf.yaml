@@ -22,4 +22,3 @@
     stderr: true
   - [zsh -c 'source ~/.zshrc', Initializing zsh]
   - [bash script/ruby.sh, Installing ruby]
-  - [bash script/python.sh, Installing python]
