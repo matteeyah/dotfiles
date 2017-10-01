@@ -29,9 +29,13 @@ export EDITOR=vim
 
 ### Ruby ###
 # Set up rbenv
-export PATH="$HOME/.rbenv/shims:${PATH}"
-command rbenv rehash 2>/dev/null
+eval "$(rbenv init -)"
 ### Ruby ###
+
+### Python ###
+# Set up pyenv
+eval "$(pyenv init -)"
+### Python ###
 
 ### fzf ###
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
