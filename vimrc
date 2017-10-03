@@ -40,8 +40,6 @@ let g:clang_library_path='/usr/local/opt/llvm/lib/libclang.dylib'
 let g:clang_complete_auto = 1
 
 let mapleader="," " set <leader> key to <,>
-" cancel out of a search with <ESC>
-nmap <silent> <Esc> :nohlsearch<Bar>:echo<CR>
 " sane window switching
 nmap <c-h> :wincmd h<CR>
 nmap <c-j> :wincmd j<CR>

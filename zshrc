@@ -36,7 +36,3 @@ eval "$(rbenv init -)"
 # Set up pyenv
 eval "$(pyenv init -)"
 ### Python ###
-
-### fzf ###
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-### fzf ###

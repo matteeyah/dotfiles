@@ -20,8 +20,5 @@ Plug 'majutsushi/tagbar'
 Plug 'vim-airline/vim-airline'
 Plug 'lifepillar/vim-mucomplete'
 Plug 'Rip-Rip/clang_complete'
-"Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
 
 call plug#end()
