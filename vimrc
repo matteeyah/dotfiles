@@ -41,10 +41,10 @@ let g:clang_complete_auto = 1
 
 let mapleader="," " set <leader> key to <,>
 " sane window switching
-nmap <c-h> :wincmd h<CR>
-nmap <c-j> :wincmd j<CR>
-nmap <c-k> :wincmd k<CR>
-nmap <c-l> :wincmd l<CR>
+nnoremap <c-h> <c-w>h
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-l> <c-w>l
 " toggles
 nmap <leader>tt :TagbarToggle<CR>
 " easymotion
