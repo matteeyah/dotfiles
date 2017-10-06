@@ -30,15 +30,6 @@ endif
 set background=dark
 colorscheme solarized
 
-""" MUCopmlete
-set completeopt+=menuone,noinsert,preview
-set shortmess+=c
-let g:mucomplete#enable_auto_at_startup = 1
-autocmd CompleteDone * pclose
-" clang_complete
-let g:clang_library_path='/usr/local/opt/llvm/lib/libclang.dylib'
-let g:clang_complete_auto = 1
-
 let mapleader="," " set <leader> key to <,>
 " toggles
 nmap <leader>tt :TagbarToggle<CR>
@@ -54,9 +45,7 @@ nmap <leader>gs :Gstatus<CR>
 nmap <leader>gp :Gpull<CR>
 nmap <leader>gu :Gpush<CR>
 nmap <leader>gc :Gcommit<CR>
+nmap <leader>gr :Gread<CR>
+nmap <leader>gw :Gwrite<CR>
 nmap <leader>gl :Glog<CR>
 nmap <leader>gb :Gblame<CR>
-
-nmap <leader>ff :Files<CR>
-nmap <leader>fg :GFiles<CR>
-nmap <leader>fa :Ag<CR>
