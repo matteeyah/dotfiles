@@ -16,6 +16,7 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'easymotion/vim-easymotion'
 Plug 'majutsushi/tagbar'
 Plug 'itchyny/lightline.vim'
+Plug 'edkolev/tmuxline.vim'
 "Plug 'vim-airline/vim-airline'
 
 call plug#end()

@@ -40,11 +40,6 @@ let g:clang_library_path='/usr/local/opt/llvm/lib/libclang.dylib'
 let g:clang_complete_auto = 1
 
 let mapleader="," " set <leader> key to <,>
-" sane window switching
-nnoremap <c-h> <c-w>h
-nnoremap <c-j> <c-w>j
-nnoremap <c-k> <c-w>k
-nnoremap <c-l> <c-w>l
 " toggles
 nmap <leader>tt :TagbarToggle<CR>
 " easymotion
