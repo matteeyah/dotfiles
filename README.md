@@ -1,6 +1,6 @@
 # dotfiles
 
-Personal dotfiles, bootstrapped by [dotbot](https://github.com/anishathalye/dotbot).
+Personal dotfiles
 
 ## Installation
 
@@ -13,14 +13,8 @@ sh setup.sh
 
 ## Updating
 
-Update by pulling in the repository and then running the install script.
-
+Update by updating submodules and pulling the latest changes.
 ```bash
-cd ~/.dotfiles
+git submodule update --recursive --remote
 git pull
-./install
 ```
-
-### dotbot
-
-To manually update dotbot run `git submodule update --init --recursive` inside the repo.
