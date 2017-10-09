@@ -4,16 +4,17 @@ source ~/.dotfiles/vendor/antigen/bin/antigen.zsh
 antigen bundle zsh-users/zsh-syntax-highlighting
 # Completions bundle
 antigen bundle zsh-users/zsh-completions
-# Load the theme.
-antigen bundle mafredri/zsh-async
-antigen bundle sindresorhus/pure
 # Tell Antigen that you're done.
 antigen apply
 ### Antigen ###
 
+### Theme ###
+source ~/.dotfiles/zsh/clean.zsh-theme
+### Theme ###
+
 ### Variables ###
 # The current user is the default user
-export DEFAULT_USER=`whoami`
+export DEFAULT_USER=$(whoami)
 # Enable CLI colors
 case $OSTYPE in
   "darwin"*)
@@ -25,6 +26,8 @@ case $OSTYPE in
 esac
 # Use vim as the default editor
 export EDITOR=vim
+export GPG_TTY=$(tty)
+export TMUX_SHELL=$(command -v zsh)
 ### Variables ###
 
 ### Ruby ###
