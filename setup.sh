@@ -24,12 +24,6 @@ symlink() {
 install() {
     echo "Installing packages..."
     sh ./script/install.sh
-    echo "Installing ruby..."
-    sh ./script/ruby.sh
-    echo "Installign python..."
-    sh ./script/python.sh
-    echo "Installing vim plugins..."
-    sh ./script/vim.sh
 }
 
 usage() {
