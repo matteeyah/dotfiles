@@ -2,55 +2,61 @@
 
 # Prune symlinks
 clean() {
-    echo "Pruning symlinks..."
+  echo "Pruning symlinks..."
+  if [ $verbose -eq 1 ]; then
+    find ~ -maxdepth 1 -type l -delete -print
+  else
     find ~ -maxdepth 1 -type l -delete
+  fi
 }
 
 # Update submodules
 update() {
-    echo "Updating submodules..."
-    git submodule update --init --recursive
+  echo "Updating submodules..."
+  git submodule update --init --recursive
 }
 
 # Create config symlinks
 symlink() {
-    echo "Symlinking config files..."
+  echo "Symlinking config files..."
+  if [ $verbose -eq 1 ]; then
+    ln -s -v ~/.dotfiles/zsh/zshrc ~/.zshrc
+    ln -s -v ~/.dotfiles/tmux/tmux.conf ~/.tmux.conf
+    ln -s -v ~/.dotfiles/vim/vimrc ~/.vimrc
+  else
     ln -s ~/.dotfiles/zsh/zshrc ~/.zshrc
     ln -s ~/.dotfiles/tmux/tmux.conf ~/.tmux.conf
     ln -s ~/.dotfiles/vim/vimrc ~/.vimrc
+  fi
 }
 
 # Install stuff
 install() {
-    echo "Installing packages..."
-    sh ./script/install.sh
+  ( VERBOSE=$verbose exec script/install.sh "$@" )
 }
 
 usage() {
   cat << EOF
-usage: $0 [-cusih]
--c     clean symlinks
--u     update dotfiles repo
--s     symlink config files
--i     install system packages
--h     show this
+usage: $0 [-v] <command> [-h]
+-v    verbose output
+-h    show this
+
+commands:
+
+clean        prunes symlinks
+symlink      symlinks config files
+update       updates dotifles repo
+install      installs system packages
 EOF
 }
 
+verbose=0
 [ $# -eq 0 ] && usage
-while getopts "cusih" opt; do
+
+while getopts "vh" opt; do
   case $opt in
-    c)
-      clean
-      ;;
-    u)
-      update
-      ;;
-    s)
-      symlink
-      ;;
-    i)
-      install
+    v)
+      verbose=1
       ;;
     h | *)
       usage
@@ -60,4 +66,23 @@ while getopts "cusih" opt; do
 done
 shift $((OPTIND - 1))
 
-[ $# -ne 0 ] && usage
+while [ "$1" != "" ]; do
+  case $1 in
+    clean )                 clean
+                            exit 0
+      ;;
+    update )                update
+                            exit 0
+      ;;
+    symlink )               symlink
+                            exit 0
+      ;;
+    install )               shift
+                            install $@
+                            exit 0
+      ;;
+    * )                     usage
+                            exit 1
+  esac
+done
+
