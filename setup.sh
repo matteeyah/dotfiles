@@ -39,8 +39,8 @@ install() {
 usage() {
   cat << EOF
 usage: $0 [-v] <command> [-h]
--v    verbose output
 -h    show this
+-v    verbose output
 
 commands:
 
