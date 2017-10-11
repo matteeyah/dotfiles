@@ -1,3 +1,5 @@
+#!/bin/sh
+
 # Update package list
 sudo apt update
 # Use the noninteractive frontend
@@ -6,12 +8,15 @@ export DEBIAN_FRONTEND="noninteractive"
 sudo apt -y install zsh
 sudo apt -y install git
 sudo apt -y install tig
+
 sudo apt -y install rbenv
 # Install the ruby-build plugin for rbenv
-git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
+git clone https://github.com/rbenv/ruby-build.git "$(rbenv root)"/plugins/ruby-build
+
 sudo apt -y install pyenv
 # Install the pyenv-virtualenvwrapper plugin for pyenv
-git clone https://github.com/pyenv/pyenv-virtualenvwrapper.git $(pyenv root)/plugins/pyenv-virtualenvwrapper
+git clone https://github.com/pyenv/pyenv-virtualenvwrapper.git "$(pyenv root)"/plugins/pyenv-virtualenvwrapper
+
 sudo apt -y install tmux
 sudo apt -y install vim
 

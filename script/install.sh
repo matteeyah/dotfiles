@@ -1,15 +1,16 @@
-#!/bin/bash
+#!/bin/sh
 
 # Determine which system the script is running on
 # Then install system pacakges using the appropriate package manager
 packages() {
   echo "Installing system packages..."
-  if [[ "$OSTYPE" = "darwin"* ]]; then
-    /bin/bash script/install/macos.sh
-  elif [[ "$OSTYPE" = "linux-gnu" ]]; then
-    case $(grep ^ID= /etc/os-release | cut -d = -f2) in
-      debian|ubuntu)
-        /bin/bash script/install/debian.sh
+  unamestr="$(uname)"
+  if [ "${unamestr}" = "Darwin" ]; then
+    exec script/install/macos.sh
+  elif [ "${unamestr}" = "Linux" ]; then
+    case "$(grep ^ID= /etc/os-release | cut -d = -f2)" in
+      debian | ubuntu)
+        exec script/install/debian.sh
         ;;
     esac
   fi
@@ -18,7 +19,7 @@ packages() {
 # Install ruby
 ruby() {
   echo "Installing ruby..."
-  if [ $VERBOSE -eq 1 ]; then
+  if [ "${VERBOSE}" -eq 1 ]; then
     rbenv install --verbose 2.4.1
   else
     rbenv install 2.4.1
@@ -29,7 +30,7 @@ ruby() {
 # Install python
 python() {
   echo "Installing python..."
-  if [ $VERBOSE -eq 1 ]; then
+  if [ "${VERBOSE}" -eq 1 ]; then
     pyenv install --verbose 3.6.2
   else
     pyenv install 3.6.2
@@ -59,10 +60,10 @@ usage setup.sh [-v] install [-srpe] [-h]
 EOF
 }
 
-[ $# -eq 0 ] && usage
+[ "$#" -eq 0 ] && usage && exit 1
 
 while getopts "srpeh" opt; do
-  case $opt in
+  case "${opt}" in
     s)
       packages
       ;;
@@ -77,10 +78,9 @@ while getopts "srpeh" opt; do
       ;;
     h | *)
       usage
-      exit 0
+      exit 1
       ;;
   esac
 done
-shift $((OPTIND - 1))
-
-[ $# -ne 0 ] && usage
+shift "$((OPTIND - 1))"
+[ "$#" -ne 0 ] && usage && exit 1
