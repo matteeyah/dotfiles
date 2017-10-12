@@ -3,11 +3,13 @@
 # Prune symlinks
 clean() {
   echo "Pruning symlinks..."
-  if [ "${verbose}" -eq 1 ]; then
-    find ~ -maxdepth 1 -type l -delete -print
-  else
-    find ~ -maxdepth 1 -type l -delete
-  fi
+  while IFS=' ' read -r _ second; do
+    if [ "${verbose}" -eq 1 ]; then
+      unlink "${HOME}/${second}"
+    else
+      unlink "${HOME}/${second}"
+    fi
+  done < configs
 }
 
 # Update dotfiles repo
@@ -20,15 +22,13 @@ update() {
 # Create config symlinks
 symlink() {
   echo "Symlinking config files..."
-  if [ "${verbose}" -eq 1 ]; then
-    ln -s -v ~/.dotfiles/zsh/zshrc ~/.zshrc
-    ln -s -v ~/.dotfiles/tmux/tmux.conf ~/.tmux.conf
-    ln -s -v ~/.dotfiles/vim/vimrc ~/.vimrc
-  else
-    ln -s ~/.dotfiles/zsh/zshrc ~/.zshrc
-    ln -s ~/.dotfiles/tmux/tmux.conf ~/.tmux.conf
-    ln -s ~/.dotfiles/vim/vimrc ~/.vimrc
-  fi
+  while IFS=' ' read -r first second; do
+    if [ "${verbose}" -eq 1 ]; then
+      ln -s -v "$(pwd)/${first}" "${HOME}/${second}"
+    else
+      ln -s "$(pwd)/${first}" "${HOME}/${second}"
+    fi
+  done < configs
 }
 
 # Install stuff
