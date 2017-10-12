@@ -16,6 +16,9 @@ precmd () {
   fi
 
   RPROMPT="${git_branch}"
+  if ! [ -z "${VIRTUAL_ENV}" ]; then
+    RPROMPT="$(basename ${VIRTUAL_ENV})|${RPROMPT}"
+  fi
 
   if [ "$ZSH_CLEAN_PATH_STYLE" = "1" ]; then
     PROMPT="%F{blue}%c "
