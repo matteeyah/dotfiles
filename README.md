@@ -60,10 +60,18 @@ plaintext files.
 
 |Variable|Default|Function|
 |:-:|:-:|:-:|
+|SYMLINK_FILE|configs|Specifies which file lists config files to be handled by `clean` and `symlink` _*_|
+|APT_FILE|script/install/apt|Specifies which file lists packages to be installed by apt on debian/ubuntu systems _**_|
+|BREW_FILE|script/install/brew|Specifies which file lists packages to be installed by brew on macOS systems _**_|
+|CASK_FILE|script/install/cask|Specifies which file lists packages to be installed by cask on macOS systems _**_|
 |PYTHON_VERSION|3.6.1|Specifies which python version is installed with `setup.sh install -p`|
 |RUBY_VERSION|2.4.2|Specifies which ruby version is installed with `setup.sh install -r`|
-|APT_FILE|script/install/apt|Specifies which file lists packages to be installed by apt on debian/ubuntu systems _*_|
-|BREW_FILE|script/install/brew|Specifies which file lists packages to be installed by brew on mac systems _*_|
-|CASK_FILE|script/install/cask|Specifies which file lists packages to be installed by cask on mac systems _*_|
 
-_*: Newline separated_
+_*_ Uses the following format
+```plain
+config_file symlink
+```
+* `config_file` is relative to `pwd` (the dotfiles repo root)
+* `symlink` is relative to `$HOME`
+
+_**_ Newline separated

@@ -2,6 +2,10 @@
 
 # Prune symlinks
 clean() {
+  if [ -z "${SYMLINK_FILE}" ]; then
+    SYMLINK_FILE=configs
+  fi
+
   echo "Pruning symlinks..."
   while IFS=' ' read -r _ second; do
     if [ "${verbose}" -eq 1 ]; then
@@ -9,7 +13,7 @@ clean() {
     else
       unlink "${HOME}/${second}"
     fi
-  done < configs
+  done < "${SYMLINK_FILE}"
 }
 
 # Update dotfiles repo

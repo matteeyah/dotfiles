@@ -65,9 +65,12 @@ packages() {
 
 # Install ruby
 ruby() {
-  ensure_git
-
   echo "Installing rbenv..."
+
+  if [ -z "${RUBY_VERSION}" ]; then
+    RUBY_VERSION=2.4.2
+  fi
+
   if [ "${system}" = "darwin" ]; then
     ensure_brew
     # Install ruby dependencies
@@ -81,20 +84,26 @@ ruby() {
   fi
 
   # Install the ruby-build plugin for rbenv
+  ensure_git
   git clone https://github.com/rbenv/ruby-build.git "$(rbenv root)"/plugins/ruby-build
 
   echo "Installing ruby..."
   if [ "${VERBOSE}" -eq 1 ]; then
-    rbenv install --verbose "$2"
+    rbenv install --verbose "${RUBY_VERSION}"
   else
-    rbenv install "$1"
+    rbenv install "${RUBY_VERSION}"
   fi
-  rbenv global "$1"
+  rbenv global "${RUBY_VERSION}"
 }
 
 # Install python
 python() {
   echo "Installing pyenv..."
+
+  if [ -z "${PYTHON_VERSION}" ]; then
+    PYTHON_VERSION=3.6.1
+  fi
+
   if [ "${system}" = "darwin" ]; then
     ensure_brew
     # Install python dependencies
@@ -114,11 +123,11 @@ python() {
 
   echo "Installing python..."
   if [ "${VERBOSE}" -eq 1 ]; then
-    pyenv install --verbose "$2"
+    pyenv install --verbose "${PYTHON_VERSION}"
   else
-    pyenv install "$1"
+    pyenv install "${PYTHON_VERSION}"
   fi
-  pyenv global "$1"
+  pyenv global "${PYTHON_VERSION}"
 }
 
 # Install vim-plug
@@ -169,18 +178,10 @@ while getopts "srpeh" opt; do
       packages
       ;;
     r)
-      if [ -z "${PYTHON_VERSION}" ]; then
-        ruby 2.4.1
-      else
-        ruby "${PYTHON_VERSION}"
-      fi
+      ruby
       ;;
     p)
-      if [ -z "${RUBY_VERSION}" ]; then
-        ruby 2.4.1
-      else
-        ruby "${RUBY_VERSION}"
-      fi
+      python
       ;;
     e)
       vim
