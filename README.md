@@ -2,7 +2,7 @@
 
 Personal dotfiles
 
-## Getting set up
+## Usage
 
 To set up the dotfiles just clone this repo and run the appropriate setup script commands.
 ```bash
@@ -26,15 +26,15 @@ install      installs system packages
 
 ### Clean
 
-Cleans all symlinks from the home folder.
+Cleans (unlinks)  all symlinks specified in `configs`.
 
 ### Symlink
 
-Symlinks configs to the home folder.
+Symlinks configs specified in `configs`.
 
 ### Update
 
-Updates the dotfile repo.
+Updates the dotfile repo: updates submodules and pulls new changes.
 
 ### Install
 
@@ -44,27 +44,26 @@ Usage:
 ```bash
 usage setup.sh [-v] install [-srpe] [-h]
 
--e    install vim plugins
+-e    install vim and plugins
 -h    show this
 -p    install python
 -r    install ruby
 -s    install system packages
 -v    verbose output
 ```
-## Options
+## Configuration
 
-### Python
+The setup script is configured using environment variables and a couple of
+plaintext files.
 
-You specify which version of python is going to be installed by `setup.sh
-install -p` by setting the `PYTHON_VERSION` environment variable.
+### Environment Variables
 
-### Ruby
+|Variable|Default|Function|
+|:-:|:-:|:-:|
+|PYTHON_VERSION|3.6.1|Specifies which python version is installed with `setup.sh install -p`|
+|RUBY_VERSION|2.4.2|Specifies which ruby version is installed with `setup.sh install -r`|
+|APT_FILE|script/install/apt|Specifies which file lists packages to be installed by apt on debian/ubuntu systems _*_|
+|BREW_FILE|script/install/brew|Specifies which file lists packages to be installed by brew on mac systems _*_|
+|CASK_FILE|script/install/cask|Specifies which file lists packages to be installed by cask on mac systems _*_|
 
-You specify which version of ruby is going to be installed by `setup.sh
-install -r` by setting the `RUBY_VERSION` environment variable.
-
-### Package Lists
-
-You can specify the location of the file containing a list of packages to be
-installed with `setup.sh install -s` by setting the `APT_FILE`, `BREW_FILE`
-and/or `CASK_FILE` environment variables.
+_*: Newline separated_
