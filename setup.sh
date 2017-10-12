@@ -2,11 +2,12 @@
 
 # Prune symlinks
 clean() {
+  echo "Pruning symlinks..."
+
   if [ -z "${SYMLINK_FILE}" ]; then
-    SYMLINK_FILE=configs
+    SYMLINK_FILE="setup/symlinks"
   fi
 
-  echo "Pruning symlinks..."
   while IFS=' ' read -r _ second; do
     if [ "${verbose}" -eq 1 ]; then
       unlink "${HOME}/${second}"
@@ -26,18 +27,23 @@ update() {
 # Create config symlinks
 symlink() {
   echo "Symlinking config files..."
+
+  if [ -z "${SYMLINK_FILE}" ]; then
+    SYMLINK_FILE="setup/symlinks"
+  fi
+
   while IFS=' ' read -r first second; do
     if [ "${verbose}" -eq 1 ]; then
       ln -s -v "$(pwd)/${first}" "${HOME}/${second}"
     else
       ln -s "$(pwd)/${first}" "${HOME}/${second}"
     fi
-  done < configs
+  done < "${SYMLINK_FILE}"
 }
 
 # Install stuff
 install() {
-  VERBOSE="${verbose}" exec script/install.sh "$@"
+  VERBOSE="${verbose}" exec setup/install.sh "$@"
 }
 
 usage() {

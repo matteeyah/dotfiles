@@ -26,11 +26,11 @@ install      installs system packages
 
 ### Clean
 
-Cleans (unlinks) all symlinks specified in `configs`.
+Cleans (unlinks) all symlinks specified in `$SYMLINK_FILE`.
 
 ### Symlink
 
-Symlinks configs specified in `configs`.
+Symlinks configs specified in `$SYMLINK_FILE`.
 
 ### Update
 
@@ -60,10 +60,10 @@ plaintext files.
 
 |Variable|Default|Function|
 |:-:|:-:|:-:|
-|SYMLINK_FILE|configs|Specifies which file lists config files to be handled by `clean` and `symlink` _*_|
-|APT_FILE|script/install/apt|Specifies which file lists packages to be installed by apt on debian/ubuntu systems _**_|
-|BREW_FILE|script/install/brew|Specifies which file lists packages to be installed by brew on macOS systems _**_|
-|CASK_FILE|script/install/cask|Specifies which file lists packages to be installed by cask on macOS systems _**_|
+|SYMLINK_FILE|setup/symlinks|Specifies which file lists config files to be handled by `clean` and `symlink` _*_|
+|APT_FILE|setup/install/apt|Specifies which file lists packages to be installed by apt on debian/ubuntu systems _**_|
+|BREW_FILE|setup/install/brew|Specifies which file lists packages to be installed by brew on macOS systems _**_|
+|CASK_FILE|setup/install/cask|Specifies which file lists packages to be installed by cask on macOS systems _**_|
 |PYTHON_VERSION|latest stable|Specifies which python version is installed with `setup.sh install -p`|
 |RUBY_VERSION|latest stable|Specifies which ruby version is installed with `setup.sh install -r`|
 

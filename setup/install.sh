@@ -35,11 +35,11 @@ packages() {
   case "${system}" in
     "darwin")
       if [ -z "${BREW_FILE}" ]; then
-        BREW_FILE="script/install/brew"
+        BREW_FILE="setup/install/brew"
       fi
 
       if [ -z "${CASK_FILE}" ]; then
-        CASK_FILE="script/install/cask"
+        CASK_FILE="setup/install/cask"
       fi
 
       ensure_brew
@@ -48,7 +48,7 @@ packages() {
       ;;
     "debian" | "ubuntu")
       if [ -z "${APT_FILE}" ]; then
-        APT_FILE="script/install/apt"
+        APT_FILE="setup/install/apt"
       fi
 
       export DEBIAN_FRONTEND="noninteractive"
