@@ -61,11 +61,6 @@ packages() {
 # Install ruby
 ruby() {
   echo "Installing rbenv..."
-
-  if [ -z "${RUBY_VERSION}" ]; then
-    RUBY_VERSION=2.4.2
-  fi
-
   if [ "${system}" = "darwin" ]; then
     ensure_brew
     # Install ruby dependencies
@@ -83,6 +78,10 @@ ruby() {
 
 
   echo "Installing ruby..."
+  if [ -z "${RUBY_VERSION}" ]; then
+    RUBY_VERSION="$(rbenv install -l | grep -v - | tail -1)"
+  fi
+
   if [ "${VERBOSE}" -eq 1 ]; then
     rbenv install --verbose "${RUBY_VERSION}"
   else
@@ -94,11 +93,6 @@ ruby() {
 # Install python
 python() {
   echo "Installing pyenv..."
-
-  if [ -z "${PYTHON_VERSION}" ]; then
-    PYTHON_VERSION=3.6.1
-  fi
-
   if [ "${system}" = "darwin" ]; then
     ensure_brew
     # Install python dependencies
@@ -115,8 +109,11 @@ python() {
     git clone https://github.com/pyenv/pyenv-virtualenvwrapper.git "$(pyenv root)"/plugins/pyenv-virtualenvwrapper
   fi
 
-
   echo "Installing python..."
+  if [ -z "${PYTHON_VERSION}" ]; then
+    PYTHON_VERSION="$(pyenv install -l | grep -v - | grep -v -E "a|b|rc")"
+  fi
+
   if [ "${VERBOSE}" -eq 1 ]; then
     pyenv install --verbose "${PYTHON_VERSION}"
   else
