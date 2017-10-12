@@ -1,36 +1,31 @@
 #!/bin/sh
 
-# Ensure homebrew installed on mac systems
+# Ensure homebrew is installed on mac systems
 ensure_brew() {
   if ! command -v brew && [ "${system}" = "darwin" ]; then
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   fi
 }
 
-# Ensure curl is installed on linux systems
-ensure_curl() {
-  if ! command -v curl; then
-    case "${system}" in
-      "debian" | "ubuntu")
-        sudo apt install -y curl
-        ;;
-    esac
+# Ensure a package is installed
+ensure() {
+  if [ "${system}" = "darwin" ]; then
+    ensure_brew
   fi
-}
 
-# Ensure git is installed
-ensure_git() {
-  if ! command -v curl; then
-    case "${system}" in
-      "darwin")
-        ensure_brew
-        brew install git
-        ;;
-      "debian" | "ubuntu")
-        sudo apt install -y git
-        ;;
-    esac
-  fi
+  while [ "$#" -ne 0 ]; do
+    if ! command -v "$1"; then
+      case "${system}" in
+        "darwin")
+          brew install "$1"
+          ;;
+        "debian" | "ubuntu")
+          sudo apt install -y "$1"
+          ;;
+      esac
+    fi
+    shift
+  done
 }
 
 # Determine which system the script is running on
@@ -74,18 +69,18 @@ ruby() {
   if [ "${system}" = "darwin" ]; then
     ensure_brew
     # Install ruby dependencies
-    brew install openssl libyaml libffi
+    ensure openssl libyaml libffi
 
     brew install rbenv
   elif [ "${system}" = "debian" ]; then
     # Install ruby dependencies
-    sudo apt -y install autoconf bison build-essential libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm3 libgdbm-dev
+    ensure autoconf bison build-essential libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm3 libgdbm-dev
     sudo apt install -y rbenv
+    # Install the ruby-build plugin for rbenv
+    ensure git
+    git clone https://github.com/rbenv/ruby-build.git "$(rbenv root)"/plugins/ruby-build
   fi
 
-  # Install the ruby-build plugin for rbenv
-  ensure_git
-  git clone https://github.com/rbenv/ruby-build.git "$(rbenv root)"/plugins/ruby-build
 
   echo "Installing ruby..."
   if [ "${VERBOSE}" -eq 1 ]; then
@@ -107,16 +102,16 @@ python() {
   if [ "${system}" = "darwin" ]; then
     ensure_brew
     # Install python dependencies
-    brew install readline xz
+    ensure readline xz
 
-    brew install git pyenv pyenv-virtualenvwrapper
+    brew install pyenv pyenv-virtualenvwrapper
   elif [ "${system}" = "debian" ]; then
     # Install python dependencies
-    sudo apt -y install make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev
+    ensure make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev
 
-    sudo apt install -y git pyenv
+    sudo apt install -y pyenv
     # Install the pyenv-virtualenvwrapper plugin for pyenv
-    ensure_git
+    ensure git
     git clone https://github.com/pyenv/pyenv-virtualenvwrapper.git "$(pyenv root)"/plugins/pyenv-virtualenvwrapper
   fi
 
@@ -132,8 +127,8 @@ python() {
 
 # Install vim-plug
 vim() {
-  ensure_git
-  ensure_curl
+  ensure git
+  ensure curl
 
   echo "Installing vim..."
   if [ "${system}" = "darwin" ]; then
