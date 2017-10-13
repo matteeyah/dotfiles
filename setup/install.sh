@@ -73,7 +73,7 @@ ruby() {
     sudo apt install -y rbenv
     # Install the ruby-build plugin for rbenv
     ensure git
-    git clone https://github.com/rbenv/ruby-build.git "$(rbenv root)"/plugins/ruby-build
+    git clone https://github.com/rbenv/ruby-build.git "$(rbenv root)/plugins/ruby-build"
   fi
 
 
@@ -106,7 +106,7 @@ python() {
     sudo apt install -y pyenv
     # Install the pyenv-virtualenvwrapper plugin for pyenv
     ensure git
-    git clone https://github.com/pyenv/pyenv-virtualenvwrapper.git "$(pyenv root)"/plugins/pyenv-virtualenvwrapper
+    git clone https://github.com/pyenv/pyenv-virtualenvwrapper.git "$(pyenv root)/plugins/pyenv-virtualenvwrapper"
   fi
 
   echo "Installing python..."
@@ -155,34 +155,38 @@ usage setup.sh [-v] install [-srpe] [-h]
 EOF
 }
 
-[ "$#" -eq 0 ] && usage && exit 1
+main() {
+  [ "$#" -eq 0 ] && usage && exit 1
 
-unamestr="$(uname)"
-if [ "${unamestr}" = "Darwin" ]; then
-  system="darwin"
-elif [ "${unamestr}" = "Linux" ]; then
-  system="$(grep ^ID= /etc/os-release | cut -d = -f2)"
-fi
+  unamestr="$(uname)"
+  if [ "${unamestr}" = "Darwin" ]; then
+    system="darwin"
+  elif [ "${unamestr}" = "Linux" ]; then
+    system="$(grep ^ID= /etc/os-release | cut -d = -f2)"
+  fi
 
-while getopts "srpeh" opt; do
-  case "${opt}" in
-    s)
-      packages
-      ;;
-    r)
-      ruby
-      ;;
-    p)
-      python
-      ;;
-    e)
-      vim
-      ;;
-    h | *)
-      usage
-      exit 1
-      ;;
-  esac
-done
-shift "$((OPTIND - 1))"
-[ "$#" -ne 0 ] && usage && exit 1
+  while getopts "srpeh" opt; do
+    case "${opt}" in
+      s)
+        packages
+        ;;
+      r)
+        ruby
+        ;;
+      p)
+        python
+        ;;
+      e)
+        vim
+        ;;
+      h | *)
+        usage
+        exit 1
+        ;;
+    esac
+  done
+  shift "$((OPTIND - 1))"
+  [ "$#" -ne 0 ] && usage && exit 1
+}
+
+main "$@"

@@ -61,47 +61,51 @@ install      installs system packages
 EOF
 }
 
-verbose=0
-[ "$#" -eq 0 ] && usage && exit 1
+main() {
+  verbose=0
+  [ "$#" -eq 0 ] && usage && exit 1
 
-while getopts "vh" opt; do
-  case "${opt}" in
-    v)
-      verbose=1
+  while getopts "vh" opt; do
+    case "${opt}" in
+      v)
+        verbose=1
+        ;;
+      h | *)
+        usage
+        exit 1
+        ;;
+    esac
+  done
+  shift "$((OPTIND - 1))"
+
+  case "$1" in
+    clean)
+      shift
+      [ "$#" -ne 0 ] && usage && exit 1
+      clean
+      exit 0
       ;;
-    h | *)
+    update)
+      shift
+      [ "$#" -ne 0 ] && usage && exit 1
+      update
+      exit 0
+      ;;
+    symlink)
+      shift
+      [ "$#" -ne 0 ] && usage && exit 1
+      symlink
+      exit 0
+      ;;
+    install)
+      shift
+      install "$@"
+      exit 0
+      ;;
+    *)
       usage
       exit 1
-      ;;
   esac
-done
-shift "$((OPTIND - 1))"
+}
 
-case "$1" in
-  clean)
-    shift
-    [ "$#" -ne 0 ] && usage && exit 1
-    clean
-    exit 0
-    ;;
-  update)
-    shift
-    [ "$#" -ne 0 ] && usage && exit 1
-    update
-    exit 0
-    ;;
-  symlink)
-    shift
-    [ "$#" -ne 0 ] && usage && exit 1
-    symlink
-    exit 0
-    ;;
-  install)
-    shift
-    install "$@"
-    exit 0
-    ;;
-  *)
-    usage
-    exit 1
-esac
+main "$@"
