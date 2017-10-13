@@ -161,7 +161,7 @@ unamestr="$(uname)"
 if [ "${unamestr}" = "Darwin" ]; then
   system="darwin"
 elif [ "${unamestr}" = "Linux" ]; then
-  system="$(grep ^ID= /etc/os-release | cut -d = -f2)" in
+  system="$(grep ^ID= /etc/os-release | cut -d = -f2)"
 fi
 
 while getopts "srpeh" opt; do

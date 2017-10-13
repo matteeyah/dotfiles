@@ -13,25 +13,28 @@ source ~/.dotfiles/zsh/clean.zsh-theme
 ### Theme ###
 
 ### Functions ###
-source ~/.dotfiles/zsh/functions.zsh
+source ~/.dotfiles/zsh/functions.sh
 ### Functions ###
 
 ### Variables ###
 # The current user is the default user
-export DEFAULT_USER=$(whoami)
+DEFAULT_USER="$(whoami)"
+export DEFAULT_USER
 # Enable CLI colors
-case $OSTYPE in
-  "darwin"*)
+case "$(uname)" in
+  "Darwin")
     export CLICOLOR=1
     ;;
-  "linux-gnu")
+  "Linux")
     alias ls='ls --color=auto'
     ;;
 esac
 # Use vim as the default editor
-export EDITOR=vim
-export GPG_TTY=$(tty)
-export TMUX_SHELL=$(command -v zsh)
+export EDITOR="vim"
+GPG_TTY="$(tty)"
+export GPG_TTY
+TMUX_SHELL="$(command -v zsh)"
+export TMUX_SHELL
 ### Variables ###
 
 ### Ruby ###
