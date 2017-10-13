@@ -12,6 +12,10 @@ antigen apply
 source ~/.dotfiles/zsh/clean.zsh-theme
 ### Theme ###
 
+### Functions ###
+source ~/.dotfiles/zsh/functions.zsh
+### Functions ###
+
 ### Variables ###
 # The current user is the default user
 export DEFAULT_USER=$(whoami)
