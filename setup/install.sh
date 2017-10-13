@@ -79,7 +79,7 @@ ruby() {
 
   echo "Installing ruby..."
   if [ -z "${RUBY_VERSION}" ]; then
-    RUBY_VERSION="$(rbenv install -l | grep -v - | tail -1)"
+    RUBY_VERSION="$(rbenv install -l | grep -v - | tail -1 | tr -d ' ')"
   fi
 
   if [ "${VERBOSE}" -eq 1 ]; then
@@ -111,7 +111,7 @@ python() {
 
   echo "Installing python..."
   if [ -z "${PYTHON_VERSION}" ]; then
-    PYTHON_VERSION="$(pyenv install -l | grep -v - | grep -v -E "a|b|rc")"
+    PYTHON_VERSION="$(pyenv install -l | grep -v - | grep -v -E "a|b|rc" | tail -1 | tr -d ' ')"
   fi
 
   if [ "${VERBOSE}" -eq 1 ]; then
