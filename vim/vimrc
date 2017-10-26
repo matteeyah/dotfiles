@@ -33,13 +33,6 @@ colorscheme solarized
 let mapleader="," " set <leader> key to <,>
 " toggles
 nmap <leader>tt :TagbarToggle<CR>
-" easymotion
-" Move to char
-nmap <leader>ec <Plug>(easymotion-overwin-f)
-" Move to line
-nmap <leader>el <Plug>(easymotion-overwin-line)
-" Move to word
-nmap <leader>ew <Plug>(easymotion-overwin-w)
 " git
 nmap <leader>gs :Gstatus<CR>
 nmap <leader>gp :Gpull<CR>
