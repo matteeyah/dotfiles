@@ -61,20 +61,23 @@ packages() {
 # Install ruby
 ruby() {
   echo "Installing rbenv..."
-  if [ "${system}" = "darwin" ]; then
-    ensure_brew
-    # Install ruby dependencies
-    ensure openssl libyaml libffi
+  case "${system}" in
+    "darwin")
+      ensure_brew
+      # Install ruby dependencies
+      ensure openssl libyaml libffi
 
-    brew install rbenv
-  elif [ "${system}" = "debian" ]; then
-    # Install ruby dependencies
-    ensure autoconf bison build-essential libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm3 libgdbm-dev
-    sudo apt install -y rbenv
-    # Install the ruby-build plugin for rbenv
-    ensure git
-    git clone https://github.com/rbenv/ruby-build.git "$(rbenv root)/plugins/ruby-build"
-  fi
+      brew install rbenv
+      ;;
+    "debian" | "ubuntu")
+      # Install ruby dependencies
+      ensure autoconf bison build-essential libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm3 libgdbm-dev
+      sudo apt install -y rbenv
+      # Install the ruby-build plugin for rbenv
+      ensure git
+      git clone https://github.com/rbenv/ruby-build.git "$(rbenv root)/plugins/ruby-build"
+      ;;
+  esac
 
 
   echo "Installing ruby..."
@@ -93,21 +96,24 @@ ruby() {
 # Install python
 python() {
   echo "Installing pyenv..."
-  if [ "${system}" = "darwin" ]; then
-    ensure_brew
-    # Install python dependencies
-    ensure readline xz
+  case "${system}" in
+    "darwin")
+      ensure_brew
+      # Install python dependencies
+      ensure readline xz
 
-    brew install pyenv pyenv-virtualenvwrapper
-  elif [ "${system}" = "debian" ]; then
-    # Install python dependencies
-    ensure make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev
+      brew install pyenv pyenv-virtualenvwrapper
+      ;;
+    "debian" | "ubuntu")
+      # Install python dependencies
+      ensure make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev
 
-    sudo apt install -y pyenv
-    # Install the pyenv-virtualenvwrapper plugin for pyenv
-    ensure git
-    git clone https://github.com/pyenv/pyenv-virtualenvwrapper.git "$(pyenv root)/plugins/pyenv-virtualenvwrapper"
-  fi
+      sudo apt install -y pyenv
+      # Install the pyenv-virtualenvwrapper plugin for pyenv
+      ensure git
+      git clone https://github.com/pyenv/pyenv-virtualenvwrapper.git "$(pyenv root)/plugins/pyenv-virtualenvwrapper"
+      ;;
+  esac
 
   echo "Installing python..."
   if [ -z "${PYTHON_VERSION}" ]; then
@@ -128,18 +134,20 @@ vim() {
   ensure curl
 
   echo "Installing vim..."
-  if [ "${system}" = "darwin" ]; then
-    ensure_brew
-    brew install vim
-  elif [ "${system}" = "debian" ]; then
-    sudo apt install -y "vim"
-  fi
+  case "${system}" in
+    "darwin")
+      ensure_brew
+      brew install vim
+      ;;
+    "debian" | "ubuntu")
+      sudo apt install -y "vim"
+      ;;
+  esac
 
   echo "Installing vim plugins..."
-  curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim	
   # Install plugins then exit
-  vim +PlugInstall +qall
+  exec vim +PlugInstall +qall
 }
 
 usage() {
