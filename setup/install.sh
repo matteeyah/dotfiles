@@ -108,9 +108,10 @@ python() {
       # Install python dependencies
       ensure make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev
 
-      sudo apt install -y pyenv
-      # Install the pyenv-virtualenvwrapper plugin for pyenv
       ensure git
+      git clone https://github.com/pyenv/pyenv.git ~/.pyenv
+      PATH="$HOME/.pyenv/bin:$PATH"
+      # Install the pyenv-virtualenvwrapper plugin for pyenv
       git clone https://github.com/pyenv/pyenv-virtualenvwrapper.git "$(pyenv root)/plugins/pyenv-virtualenvwrapper"
       ;;
   esac
