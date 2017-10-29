@@ -14,12 +14,14 @@ set list listchars=tab:»·,trail:·,nbsp:· " display extra whitespace
 set nojoinspaces " use one space after punctuation
 set textwidth=80
 set colorcolumn=+1
+set scrolloff=5 " keep at least 5 lines when scrolling
 set number
 " open splits below and righ
 set splitbelow
 set splitright
 set hlsearch " highlight search results
 set showmatch " highlight matching parenthesis
+set cursorline " highlight current line
 
 """ theme
 if has('gui_running')
@@ -31,8 +33,6 @@ set background=dark
 colorscheme solarized
 
 let mapleader="," " set <leader> key to <,>
-" toggles
-nmap <leader>tt :TagbarToggle<CR>
 " git
 nmap <leader>gs :Gstatus<CR>
 nmap <leader>gp :Gpull<CR>

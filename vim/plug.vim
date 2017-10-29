@@ -11,7 +11,6 @@ Plug 'tpope/vim-commentary'
 Plug 'w0rp/ale'
 Plug 'airblade/vim-gitgutter'
 Plug 'altercation/vim-colors-solarized'
-Plug 'majutsushi/tagbar'
 Plug 'itchyny/lightline.vim'
 Plug 'edkolev/tmuxline.vim'
 
