@@ -2,11 +2,9 @@
 source ~/.dotfiles/vim/plug.vim
 
 """ basics
-set backspace=2 " backspace deletes in insert mode
 set nobackup
 set nowritebackup
 set noswapfile
-set history=50
 set showcmd " display incomplete commands
 set autowrite " automatically :write before running commands
 set shiftround " use multiple of shiftwidth when indenting
@@ -24,16 +22,12 @@ set showmatch " highlight matching parenthesis
 set cursorline " highlight current line
 
 """ theme
-if has('gui_running')
-        " font config
-        set guifont=Fira\ Code:h15
-        set macligatures
-endif
 set background=dark
 colorscheme solarized
 
+""" mappings
 let mapleader="," " set <leader> key to <,>
-" git
+" fugitive
 nmap <leader>gs :Gstatus<CR>
 nmap <leader>gp :Gpull<CR>
 nmap <leader>gu :Gpush<CR>
