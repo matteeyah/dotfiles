@@ -14,6 +14,7 @@ set textwidth=80
 set colorcolumn=+1
 set scrolloff=5 " keep at least 5 lines when scrolling
 set number
+set relativenumber " number lines relative to current one
 " open splits below and righ
 set splitbelow
 set splitright
@@ -28,11 +29,11 @@ colorscheme solarized
 """ mappings
 let mapleader="," " set <leader> key to <,>
 " fugitive
-nmap <leader>gs :Gstatus<CR>
-nmap <leader>gp :Gpull<CR>
-nmap <leader>gu :Gpush<CR>
-nmap <leader>gc :Gcommit<CR>
-nmap <leader>gr :Gread<CR>
-nmap <leader>gw :Gwrite<CR>
-nmap <leader>gl :Glog<CR>
-nmap <leader>gb :Gblame<CR>
+nnoremap <leader>gs :Gstatus<CR>
+nnoremap <leader>gp :Gpull<CR>
+nnoremap <leader>gu :Gpush<CR>
+nnoremap <leader>gc :Gcommit<CR>
+nnoremap <leader>gr :Gread<CR>
+nnoremap <leader>gw :Gwrite<CR>
+nnoremap <leader>gl :Glog<CR>
+nnoremap <leader>gb :Gblame<CR>
