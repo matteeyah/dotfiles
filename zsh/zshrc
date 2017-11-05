@@ -38,11 +38,15 @@ export TMUX_SHELL
 ### Variables ###
 
 ### Ruby ###
-# Set up rbenv
-eval "$(rbenv init -)"
+# Set up rbenv if installed
+if command -v rbenv; then
+  eval "$(rbenv init -)"
+fi
 ### Ruby ###
 
 ### Python ###
-# Set up pyenv
-eval "$(pyenv init -)"
+# Set up pyenv if installed
+if command -v pyenv; then
+  eval "$(pyenv init -)"
+fi
 ### Python ###
