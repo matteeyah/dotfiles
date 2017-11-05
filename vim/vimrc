@@ -37,3 +37,12 @@ nnoremap <leader>gr :Gread<CR>
 nnoremap <leader>gw :Gwrite<CR>
 nnoremap <leader>gl :Glog<CR>
 nnoremap <leader>gb :Gblame<CR>
+
+""" plugins
+" ack
+if executable("rg")
+  let g:ackprg = 'rg --vimgrep'
+endif
+let g:ack_use_dispatch = 1
+" ale
+let g:ale_sign_column_always = 1
