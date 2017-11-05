@@ -1,7 +1,8 @@
 " load plugins
 source ~/.dotfiles/vim/plug.vim
 
-""" basics
+""" options
+set encoding=utf-8
 set nobackup
 set nowritebackup
 set noswapfile
@@ -21,6 +22,7 @@ set splitright
 set hlsearch " highlight search results
 set showmatch " highlight matching parenthesis
 set cursorline " highlight current line
+set spell spelllang=en_us " enable spellchecking
 
 """ theme
 set background=dark
