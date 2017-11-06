@@ -146,9 +146,9 @@ vim() {
   esac
 
   echo "Installing vim plugins..."
-  curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim	
+  git clone https://github.com/k-takata/minpac.git ~/.vim/pack/minpac/opt/minpac
   # Install plugins then exit
-  exec vim +PlugInstall +qall
+  exec vim +PackUpdate +qall
 }
 
 usage() {

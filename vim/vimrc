@@ -1,5 +1,5 @@
 " load plugins
-source ~/.dotfiles/vim/plug.vim
+source ~/.dotfiles/vim/minpac.vim
 
 """ options
 set encoding=utf-8
