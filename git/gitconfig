@@ -1,0 +1,6 @@
+[user]
+	email = matteeyah@gmail.com
+	name = Matija Čupić
+	signingkey = 4BAF84FFACD2E5DE
+[commit]
+	gpgsign = true
