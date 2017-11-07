@@ -1,4 +1,4 @@
-" load plugins
+""" plugins
 source ~/.dotfiles/vim/minpac.vim
 
 """ options
@@ -7,6 +7,7 @@ set nobackup
 set nowritebackup
 set noswapfile
 set showcmd " display incomplete commands
+set showmode " display mode below statusline
 set autowrite " automatically :write before running commands
 set shiftround " use multiple of shiftwidth when indenting
 set list listchars=tab:»·,trail:·,nbsp:· " display extra whitespace
@@ -47,3 +48,6 @@ if executable("rg")
 endif
 " ale
 let g:ale_sign_column_always = 1
+
+""" statusline
+source ~/.dotfiles/vim/statusline.vim

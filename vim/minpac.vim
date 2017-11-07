@@ -1,4 +1,4 @@
-""" plugin manager
+" set up minpac
 packadd minpac
 call minpac#init()
 
@@ -19,10 +19,7 @@ call minpac#add('romainl/vim-cool')
 
 call minpac#add('jnurmine/Zenburn')
 
-call minpac#add('itchyny/lightline.vim')
-call minpac#add('edkolev/tmuxline.vim')
 call minpac#add('airblade/vim-gitgutter')
-
 call minpac#add('w0rp/ale')
 
 command! PackUpdate call minpac#update()
