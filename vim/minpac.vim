@@ -17,7 +17,7 @@ call minpac#add('tpope/vim-eunuch')
 call minpac#add('mileszs/ack.vim')
 call minpac#add('haya14busa/is.vim')
 
-call minpac#add('altercation/vim-colors-solarized')
+call minpac#add('jnurmine/Zenburn')
 call minpac#add('itchyny/lightline.vim')
 call minpac#add('edkolev/tmuxline.vim')
 call minpac#add('airblade/vim-gitgutter')

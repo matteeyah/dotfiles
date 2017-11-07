@@ -16,7 +16,7 @@ set colorcolumn=+1
 set scrolloff=5 " keep at least 5 lines when scrolling
 set number
 set relativenumber " number lines relative to current one
-" open splits below and righ
+" open splits below and right
 set splitbelow
 set splitright
 set hlsearch " highlight search results
@@ -25,8 +25,7 @@ set cursorline " highlight current line
 set spell spelllang=en_us " enable spellchecking
 
 """ theme
-set background=dark
-colorscheme solarized
+colorscheme zenburn
 
 """ mappings
 let mapleader="," " set <leader> key to <,>
