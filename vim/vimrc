@@ -40,10 +40,10 @@ nnoremap <leader>gl :Glog<CR>
 nnoremap <leader>gb :Gblame<CR>
 
 """ plugins
-" ack
+" grep
 if executable("rg")
-  let g:ackprg = 'rg --vimgrep'
+  set grepprg=rg\ --vimgrep
+  set grepformat^=%f:%l:%c:%m
 endif
-let g:ack_use_dispatch = 1
 " ale
 let g:ale_sign_column_always = 1
