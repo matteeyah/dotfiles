@@ -23,7 +23,7 @@ set splitright
 set hlsearch " highlight search results
 set showmatch " highlight matching parenthesis
 set cursorline " highlight current line
-set spell spelllang=en_us " enable spellchecking
+set spelllang=en_us " set spellchecking locale
 
 """ theme
 colorscheme zenburn
