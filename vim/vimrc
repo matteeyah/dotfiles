@@ -24,6 +24,8 @@ set hlsearch " highlight search results
 set showmatch " highlight matching parenthesis
 set cursorline " highlight current line
 set spelllang=en_us " set spellchecking locale
+set wildmenu
+set wildmode=longest:full,full " expand to the longest match, then show wildmenu
 
 """ theme
 colorscheme zenburn
