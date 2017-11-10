@@ -16,6 +16,7 @@ call minpac#add('tpope/vim-eunuch')
 
 call minpac#add('romainl/vim-qf')
 call minpac#add('romainl/vim-cool')
+call minpac#add('romainl/vim-qlist')
 
 call minpac#add('jnurmine/Zenburn')
 
