@@ -8,6 +8,12 @@ antigen bundle zsh-users/zsh-completions
 antigen apply
 ### Antigen ###
 
+### zsh core ###
+autoload -U edit-command-line
+zle -N edit-command-line
+bindkey '^x^e' edit-command-line
+### zsh core ###
+
 ### Theme ###
 source ~/.dotfiles/zsh/clean.zsh-theme
 ### Theme ###
