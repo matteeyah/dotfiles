@@ -9,7 +9,14 @@ antigen apply
 ### Antigen ###
 
 ### zsh core ###
-autoload -U edit-command-line
+autoload -U edit-command-line compinit
+
+# completion configuration
+compinit
+zstyle ':completion:*' verbose yes
+zstyle ':completion:*' menu select=1
+
+# edit-command-line bindings
 zle -N edit-command-line
 bindkey '^x^e' edit-command-line
 ### zsh core ###
