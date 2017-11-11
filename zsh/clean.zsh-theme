@@ -2,30 +2,36 @@ autoload -Uz vcs_info
 autoload -U colors && colors
 setopt promptsubst
 
-zstyle ':vcs_info:*' formats '%b'
+zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:*' unstagedstr '%F{red}!%f'
+zstyle ':vcs_info:*' stagedstr '%F{green}+%f'
+zstyle ':vcs_info:*' formats '%S (%b) %u%c'
+
+# %F{color} (%f) - sets (unsets) the color
+# %S - path relative to root of vcs
+# %b - branch name
+# %u - unstaged
+# %c - changes
 
 precmd () {
   vcs_info
 
-  local git_status
-  git_status="$(command git status --porcelain 2> /dev/null | tail -n1)"
+  # %? - return code of last command
+  # %j - number of jobs
+  # %(?..) - ternary operator
 
-  if [ -n "${git_status}" ]; then
-    local git_branch="%F{red}${vcs_info_msg_0_}"
-  else
-    local git_branch="%F{green}${vcs_info_msg_0_}"
+  local code="%(?.%F{green}.%F{red})?%?%f"
+  local jobs="%(1j.%F{red}.)%%%j%f"
+
+  RPROMPT="${code} | ${jobs}"
+  if [ -n "${vcs_info_msg_0_}" ]; then
+    RPROMPT="${RPROMPT} | ${vcs_info_msg_0_}"
   fi
-
-  RPROMPT="${git_branch}"
   if [ -n "${VIRTUAL_ENV}" ]; then
-    RPROMPT="$(basename "${VIRTUAL_ENV}")|${RPROMPT}"
+    RPROMPT="${RPROMPT} | $(basename "${VIRTUAL_ENV}")"
   fi
 
-  if [ "${ZSH_CLEAN_PATH_STYLE}" = 1 ]; then
-    PROMPT="%F{blue}%c "
-  else
-    PROMPT="%F{blue}%~ "
-  fi
+  PROMPT="%F{blue}%~%f "
 
   export PROMPT
   export RPROMPT
