@@ -1,7 +1,7 @@
 ### Antigen ###
 source ~/.dotfiles/vendor/antigen/bin/antigen.zsh
 # Syntax highlighting bundle
-antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle zdharma/fast-syntax-highlighting
 # Completions bundle
 antigen bundle zsh-users/zsh-completions
 # Tell Antigen that you're done.
