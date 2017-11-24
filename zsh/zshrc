@@ -18,6 +18,7 @@ zstyle ':completion:*' menu select=1
 
 # edit-command-line bindings
 zle -N edit-command-line
+bindkey -e
 bindkey '^x^e' edit-command-line
 ### zsh core ###
 
