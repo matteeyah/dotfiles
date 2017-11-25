@@ -22,6 +22,9 @@ ensure() {
         "debian" | "ubuntu")
           sudo apt install -y "$1"
           ;;
+        "arch")
+          sudo pacman -S --noconfirm "$1"
+          ;;
       esac
     fi
     shift
@@ -55,6 +58,14 @@ packages() {
       sudo apt update
       cat < "${APT_FILE}" | xargs sudo apt install -y
       ;;
+    "arch")
+      if [ -z "${PACMAN_FILE}" ]; then
+        PACMAN_FILE="setup/install/pacman"
+      fi	 
+
+      sudo pacman -Syu
+      cat < "${PACMAN_FILE}" | xargs sudo pacman --noconfirm -S
+      ;;
   esac
 }
 
@@ -72,10 +83,19 @@ ruby() {
     "debian" | "ubuntu")
       # Install ruby dependencies
       ensure autoconf bison build-essential libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm3 libgdbm-dev
+
       sudo apt install -y rbenv
+
       # Install the ruby-build plugin for rbenv
       ensure git
       git clone https://github.com/rbenv/ruby-build.git "$(rbenv root)/plugins/ruby-build"
+      ;;
+    "arch")
+      # Install ruby dependencies
+      ensure gcc5 base-devel libffi libyaml openssl zlib
+
+      # TODO install rbenv
+      # TODO install rbenv-build
       ;;
   esac
 
@@ -110,10 +130,17 @@ python() {
 
       ensure git
       git clone https://github.com/pyenv/pyenv.git ~/.pyenv
-      PATH="$HOME/.pyenv/bin:$PATH"
+
       # Install the pyenv-virtualenvwrapper plugin for pyenv
+      PATH="$HOME/.pyenv/bin:$PATH"
       git clone https://github.com/pyenv/pyenv-virtualenvwrapper.git "$(pyenv root)/plugins/pyenv-virtualenvwrapper"
       ;;
+    "arch")
+      # Install python dependencies
+      ensure base-devel openssl zlib
+
+      # TODO Install pyenv
+      # TODO Install the pyenv-virtualenvwrapper
   esac
 
   echo "Installing python..."
@@ -129,7 +156,7 @@ python() {
   pyenv global "${PYTHON_VERSION}"
 }
 
-# Install vim-plug
+# Install vim and plugins
 vim() {
   ensure git
   ensure curl
@@ -143,12 +170,15 @@ vim() {
     "debian" | "ubuntu")
       sudo apt install -y "vim"
       ;;
+    "arch")
+      sudo pacman -S --noconfirm "vim"
+      ;;
   esac
 
   echo "Installing vim plugins..."
   git clone https://github.com/k-takata/minpac.git ~/.vim/pack/minpac/opt/minpac
-  # Install plugins then exit
-  exec vim +PackUpdate +qall
+  # Install plugins
+  exec vim +PackUpdate
 }
 
 usage() {
