@@ -46,8 +46,8 @@ packages() {
       fi
 
       ensure_brew
-      cat < "${BREW_FILE}" | xargs brew install
-      cat < "${CASK_FILE}" | xargs brew cask install
+      brew install "$(paste -s -d' ' ${BREW_FILE})"
+      brew cask install "$(paste -s -d' ' ${CASK_FILE})"
       ;;
     "debian" | "ubuntu")
       if [ -z "${APT_FILE}" ]; then
@@ -56,15 +56,15 @@ packages() {
 
       export DEBIAN_FRONTEND="noninteractive"
       sudo apt update
-      cat < "${APT_FILE}" | xargs sudo apt install -y
+      sudo apt install -y "$(paste -s -d' ' ${APT_FILE})"
       ;;
     "arch")
       if [ -z "${PACMAN_FILE}" ]; then
         PACMAN_FILE="setup/install/pacman"
-      fi	 
+      fi
 
       sudo pacman -Syu
-      cat < "${PACMAN_FILE}" | xargs sudo pacman --noconfirm -S
+      sudo pacman --noconfirm -S "$(paste -s -d' ' ${PACMAN_FILE})"
       ;;
   esac
 }
