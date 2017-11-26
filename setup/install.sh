@@ -7,6 +7,23 @@ ensure_brew() {
   fi
 }
 
+ensure_pacaur() {
+  if ! command -v pacaur && [ "${system}" = "arch" ]; then
+    mkdir -p /tmp/pacaur_install
+    cd /tmp/pacaur_install || echo "Failed" && exit
+
+    ensure expac yajl git
+
+    if ! command -v cower; then
+      curl -o https://aur.archlinux.org/cgit/aur.git/plain/PKGBUILD?h=cower
+      makepkg PKGBUILD --skippgpcheck --needed --install
+    fi
+
+    curl -o https://aur.archlinux.org/cgit/aur.git/plain/PKGBUILD?h=pacaur
+    makepkg PKGBUILD --needed --install
+  fi
+}
+
 # Ensure a package is installed
 ensure() {
   if [ "${system}" = "darwin" ]; then
@@ -23,7 +40,7 @@ ensure() {
           sudo apt install -y "$1"
           ;;
         "arch")
-          sudo pacman -S --noconfirm "$1"
+          sudo pacman -S --noconfirm --needed "$1"
           ;;
       esac
     fi
@@ -64,7 +81,7 @@ packages() {
       fi
 
       sudo pacman -Syu
-      sudo pacman --noconfirm -S "$(paste -s -d' ' ${PACMAN_FILE})"
+      sudo pacman --noconfirm -S --needed "$(paste -s -d' ' ${PACMAN_FILE})"
       ;;
   esac
 }
@@ -94,8 +111,8 @@ ruby() {
       # Install ruby dependencies
       ensure gcc5 base-devel libffi libyaml openssl zlib
 
-      # TODO install rbenv
-      # TODO install rbenv-build
+      ensure_pacaur
+      pacaur --noconfirm -S --needed rbenv rbenv-build
       ;;
   esac
 
@@ -137,10 +154,10 @@ python() {
       ;;
     "arch")
       # Install python dependencies
-      ensure base-devel openssl zlib
+      ensure openssl zlib
 
-      # TODO Install pyenv
-      # TODO Install the pyenv-virtualenvwrapper
+      ensure_pacaur
+      pacaur --noconfirm -S --needed pyenv pyenv-virtualenvwrapper
   esac
 
   echo "Installing python..."
@@ -171,7 +188,7 @@ vim() {
       sudo apt install -y "vim"
       ;;
     "arch")
-      sudo pacman -S --noconfirm "vim"
+      sudo pacman --noconfirm -S --needed "vim"
       ;;
   esac
 
