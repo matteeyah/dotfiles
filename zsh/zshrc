@@ -64,3 +64,10 @@ if command -v pyenv; then
   eval "$(pyenv init -)"
 fi
 ### Python ###
+
+### Go ###
+if command -v go; then
+  export GOPATH="${HOME}/Projects/go"
+  export PATH="${PATH}:${GOPATH}/bin"
+fi
+### Go ###
