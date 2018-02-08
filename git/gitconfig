@@ -4,3 +4,6 @@
 	signingkey = 4BAF84FFACD2E5DE
 [commit]
 	gpgsign = true
+[alias]
+	find-merge = "!sh -c 'commit=$0 && branch=${1:-HEAD} && git rev-list $commit..$branch --ancestry-path | grep -E $(git rev-list $commit..$branch --first-parent | paste -s -d \"|\" -) | tail -1'"
+	show-merge = "!sh -c 'merge=$(git find-merge $0 $1) && [ -n \"$merge\" ] && git show $merge'"
