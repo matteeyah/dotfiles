@@ -54,6 +54,8 @@ nnoremap <leader>gw :Gwrite<CR>
 nnoremap <leader>gl :Glog<CR>
 nnoremap <leader>gb :Gblame<CR>
 nnoremap <leader>gi :Git add -p %<CR>
+" FlyGrep
+nnoremap <leader>s :FlyGrep<CR>
 
 """ setup
 " grep
@@ -69,6 +71,9 @@ let g:qf_statusline.before = '%<\ '
 let g:qf_statusline.after = '\ %f%=%l\/%-6L\ \ \ \ \ '
 " vim-cool
 let g:CoolTotalMatches = 1
+" FlyGrep
+let g:FlyGrep_input_delay = 200
+let g:FlyGrep_search_tools = ['rg', 'ag']
 
 """ statusline
 source ~/.dotfiles/vim/statusline.vim

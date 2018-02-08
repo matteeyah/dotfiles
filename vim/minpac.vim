@@ -20,6 +20,7 @@ call minpac#add('romainl/vim-qlist')
 
 call minpac#add('jnurmine/Zenburn')
 
+call minpac#add('wsdjeg/FlyGrep.vim')
 call minpac#add('airblade/vim-gitgutter')
 call minpac#add('w0rp/ale')
 
