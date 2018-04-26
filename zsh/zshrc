@@ -83,3 +83,9 @@ fi
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 ### Locales ###
+
+### Brew ###
+if command -v brew; then
+  alias brew_update="brew update && brew upgrade && brew cask upgrade && brew cleanup && brew cask cleanup && brew prune"
+fi
+### Brew ###
