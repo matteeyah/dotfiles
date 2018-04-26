@@ -48,6 +48,7 @@ usage setup.sh [-v] install [-srpe] [-h]
 -h    show this
 -p    install python
 -r    install ruby
+-n    install node
 -s    install system packages
 -v    verbose output
 ```
@@ -66,6 +67,8 @@ plaintext files.
 |CASK_FILE|setup/install/cask|Specifies which file lists packages to be installed by cask on macOS systems _**_|
 |PYTHON_VERSION|latest stable|Specifies which python version is installed with `setup.sh install -p`|
 |RUBY_VERSION|latest stable|Specifies which ruby version is installed with `setup.sh install -r`|
+|NODE_VERSION|lastest stable|Specifies which node version is installed with
+`setup.sh install -n`|
 
 _*_ Uses the following format
 ```plain

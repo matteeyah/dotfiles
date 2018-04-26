@@ -65,6 +65,13 @@ if command -v pyenv; then
 fi
 ### Python ###
 
+### Node ###
+# Set up pyenv if installed
+if command -v nodenv; then
+  eval "$(nodenv init -)"
+fi
+### Node ###
+
 ### Go ###
 if command -v go; then
   export GOPATH="${HOME}/Projects/go"

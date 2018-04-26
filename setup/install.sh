@@ -173,6 +173,35 @@ python() {
   pyenv global "${PYTHON_VERSION}"
 }
 
+node() {
+  echo "Installing nodenv..."
+  case "${system}" in
+    "darwin")
+      ensure_brew
+
+      brew install nodenv
+      ;;
+    "debian" | "ubuntu")
+      sudo apt install -y nodenv
+      ;;
+    "arch")
+      ensure_pacaur
+      pacaur --noconfirm -S --needed nodenv
+  esac
+
+  echo "Installing node..."
+  if [ -z "${NODE_VERSION}" ]; then
+    NODE_VERSION="$(nodenv install -l | grep -v - | grep -v -E "a|b|rc" | tail -1 | tr -d ' ')"
+  fi
+
+  if [ "${VERBOSE}" -eq 1 ]; then
+    nodenv install --verbose "${NODE_VERSION}"
+  else
+    nodenv install "${NODE_VERSION}"
+  fi
+  nodenv global "${NODE_VERSION}"
+}
+
 # Install vim and plugins
 vim() {
   ensure git
@@ -221,7 +250,7 @@ main() {
     system="$(grep ^ID= /etc/os-release | cut -d = -f2)"
   fi
 
-  while getopts "srpeh" opt; do
+  while getopts "srpneh" opt; do
     case "${opt}" in
       s)
         packages
@@ -231,6 +260,9 @@ main() {
         ;;
       p)
         python
+        ;;
+      n)
+        node
         ;;
       e)
         vim
