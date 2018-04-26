@@ -231,11 +231,12 @@ usage() {
   cat << EOF
 usage setup.sh [-v] install [-srpe] [-h]
 
+-s    install system packages
+-r    install ruby
+-p    install python
+-n    install node
 -e    install vim and plugins
 -h    show this
--p    install python
--r    install ruby
--s    install system packages
 -v    verbose output
 EOF
 }

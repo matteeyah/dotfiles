@@ -44,12 +44,12 @@ Usage:
 ```bash
 usage setup.sh [-v] install [-srpe] [-h]
 
+-s    install system packages
+-r    install ruby
+-p    install python
+-n    install node
 -e    install vim and plugins
 -h    show this
--p    install python
--r    install ruby
--n    install node
--s    install system packages
 -v    verbose output
 ```
 ## Configuration
@@ -65,8 +65,8 @@ plaintext files.
 |APT_FILE|setup/install/apt|Specifies which file lists packages to be installed by apt on debian/ubuntu systems _**_|
 |BREW_FILE|setup/install/brew|Specifies which file lists packages to be installed by brew on macOS systems _**_|
 |CASK_FILE|setup/install/cask|Specifies which file lists packages to be installed by cask on macOS systems _**_|
-|PYTHON_VERSION|latest stable|Specifies which python version is installed with `setup.sh install -p`|
 |RUBY_VERSION|latest stable|Specifies which ruby version is installed with `setup.sh install -r`|
+|PYTHON_VERSION|latest stable|Specifies which python version is installed with `setup.sh install -p`|
 |NODE_VERSION|lastest stable|Specifies which node version is installed with
 `setup.sh install -n`|
 
