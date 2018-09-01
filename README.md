@@ -38,9 +38,12 @@ symlink farm.
 
 #### brew
 
+* fzf
 * fd
 * lazygit
 * bat
+* prettyping
+* tldr
 
 #### cask
 

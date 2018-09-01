@@ -51,6 +51,16 @@ TMUX_SHELL="$(command -v zsh)"
 export TMUX_SHELL
 ### Variables ###
 
+### fzf ###
+if command -v fzf; then
+  if command -v bat; then
+    alias preview="fzf --preview 'bat --color \"always\" {}'"
+  else
+    alias preview="fzf --preview 'cat {}'"
+  fi
+fi
+### fzf ###
+
 ### Ruby ###
 # Set up rbenv if installed
 if command -v rbenv; then
