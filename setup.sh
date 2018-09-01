@@ -12,10 +12,12 @@ function perl_re {
   echo "$1" | perl -ln -e"${2}"
 }
 
-main() {
+function packages {
+  echo "Installing packages"
+
   if ! command -v brew; then
     echo "Please install brew first."
-    exit 1
+    return 1
   fi
 
   packages=$(awk '/## Packages/,EOF { print $0 }' "README.md")
@@ -40,12 +42,30 @@ main() {
     # shellcheck disable=SC2086
     case $yn in
       "Yes") brew install ${optional}; break;;
-      "No") exit 0;;
+      "No") return 0;;
       *) echo "Invalid option";;
     esac
   done
 
-  exit 0
+  return 0
+}
+
+function symlinks {
+  echo "Installing symlinks"
+
+  re='/\* (\w+)/g'
+  symlinks=$(awk '/### Available Configurations/,/## Packages/ { print }' "README.md")
+  symlinks=$(perl_re "${symlinks}" "${re} && print \$1")
+  symlinks=$(join_lines "${symlinks}")
+  # shellcheck disable=SC2086
+  stow --restow ${symlinks}
+
+  return 0
+}
+
+function main {
+  packages
+  symlinks
 }
 
 main "$@"
