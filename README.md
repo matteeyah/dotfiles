@@ -4,7 +4,7 @@ Personal dotfiles
 
 ## Usage
 
-To set up the dotfiles just clone this repo and symlink the configurations that
+To set up the dotfiles just clone this repo and run the setup script.
 you want.
 ```bash
 git clone https://github.com/matteeyah/dotfiles ~/.dotfiles
@@ -13,6 +13,15 @@ cd ~/.dotfiles
 
 This repo is structured as a [GNU Stow](https://www.gnu.org/software/stow/)
 symlink farm.
+
+### Internals
+
+The script uses this README to figure out which packages to install and which
+files to symlink. Because of this the format of this README should always
+reflect what the script is looking for.
+
+If you want to add a symlink or package, please add it to the README following
+the already defined format.
 
 ### Available Configurations
 
