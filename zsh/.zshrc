@@ -1,5 +1,5 @@
 ### Antigen ###
-source ~/.dotfiles/vendor/antigen/bin/antigen.zsh
+source /usr/local/share/antigen/antigen.zsh
 # Syntax highlighting bundle
 antigen bundle zdharma/fast-syntax-highlighting
 # Completions bundle
