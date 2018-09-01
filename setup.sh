@@ -4,6 +4,14 @@ function join_lines {
   echo "$1" | paste -sd ' ' -
 }
 
+function find_between {
+  echo "$1" | awk "$2,$3 { print }"
+}
+
+function perl_re {
+  echo "$1" | perl -ln -e"${2}"
+}
+
 main() {
   if ! command -v brew; then
     echo "Please install brew first."
@@ -13,14 +21,14 @@ main() {
   packages=$(awk '/## Packages/,EOF { print $0 }' "README.md")
   re='/\* (\w|[-\w]+) - (?:.*) - (?:.*)/g'
 
-  required=$(echo "${packages}" | awk '/### Required/,/### Optional/ { print }')
-  required=$(echo "${required}" | awk '/#### brew/,/#### cask/ { print }')
-  required=$(echo "${required}" | perl -ln -e"${re} && print \$1")
+  required=$(find_between "${packages}" "/### Required/" "/### Optional/")
+  required=$(find_between "${required}" "/#### brew/" "/#### cask/")
+  required=$(perl_re "${required}" "${re} && print \$1")
   required=$(join_lines "${required}")
 
-  optional=$(echo "${packages}" | awk '/### Optional/,EOF { print }')
-  optional=$(echo "${optional}" | awk '/#### brew/,/#### cask/ { print }')
-  optional=$(echo "${optional}" | perl -ln -e"${re} && print \$1")
+  optional=$(find_between "${packages}" "/### Optional/" "EOF")
+  optional=$(find_between "${optional}" "/#### brew/" "/#### cask/")
+  optional=$(perl_re "${optional}" "${re} && print \$1")
   optional=$(join_lines "${optional}")
 
   echo "Installing required packages"

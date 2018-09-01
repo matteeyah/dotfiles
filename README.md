@@ -43,7 +43,6 @@ symlink farm.
 
 * fzf - Fuzzy Completer - https://github.com/junegunn/fzf
 * fd - find Replacement - https://github.com/sharkdp/fd
-* lazygit - git GUI - https://github.com/jesseduffield/lazygit
 * bat - cat Replacement - https://github.com/sharkdp/bat
 * prettyping - ping Replacement - https://github.com/denilsonsa/prettyping
 * tldr - Shell Command Usage Examples - https://github.com/tldr-pages/tldr
