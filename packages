@@ -1,0 +1,11 @@
+# brew
+zsh
+git
+ripgrep
+fd
+tig
+tmux
+
+# cask
+font-fira-code
+docker
