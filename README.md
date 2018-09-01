@@ -4,23 +4,45 @@ Personal dotfiles
 
 ## Usage
 
-To set up the dotfiles just clone this repo and run the appropriate setup script commands.
+To set up the dotfiles just clone this repo and symlink the configurations that
+you want.
 ```bash
 git clone https://github.com/matteeyah/dotfiles ~/.dotfiles
 cd ~/.dotfiles
 ```
 
+This repo is structured as a [GNU Stow](https://www.gnu.org/software/stow/)
+symlink farm.
+
+## Available Configurations
+
+* git
+* tmux
+* zsh
+* vim
+
 ## Packages
 
-### brew
-zsh
-git
-ripgrep
-fd
-tig
-tmux
-antigen
+### Required
 
-### cask
-font-fira-code
-docker
+#### brew
+
+* zsh
+* git
+* ripgrep
+* tmux
+* antigen
+* stow
+
+### Optional
+
+#### brew
+
+* fd
+* lazygit
+* bat
+
+#### cask
+
+* font-fira-code
+* docker
