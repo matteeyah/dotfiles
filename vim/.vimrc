@@ -1,5 +1,5 @@
 """ plugins
-source ~/.dotfiles/vim/minpac.vim
+source ~/.dotfiles/config/vim/minpac.vim
 
 """ options
 set encoding=utf-8 " use unicode encoding
@@ -76,4 +76,4 @@ let g:FlyGrep_input_delay = 200
 let g:FlyGrep_search_tools = ['rg', 'ag']
 
 """ statusline
-source ~/.dotfiles/vim/statusline.vim
+source ~/.dotfiles/config/vim/statusline.vim

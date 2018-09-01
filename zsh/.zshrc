@@ -23,11 +23,11 @@ bindkey '^x^e' edit-command-line
 ### zsh core ###
 
 ### Theme ###
-source ~/.dotfiles/zsh/clean.zsh-theme
+source ~/.dotfiles/config/zsh/clean.zsh-theme
 ### Theme ###
 
 ### Functions ###
-source ~/.dotfiles/zsh/functions.sh
+source ~/.dotfiles/config/zsh/functions.sh
 ### Functions ###
 
 ### Variables ###
@@ -86,6 +86,6 @@ export LANG=en_US.UTF-8
 
 ### Brew ###
 if command -v brew; then
-  alias brew_update="brew update && brew upgrade && brew cask upgrade && brew cleanup && brew cask cleanup && brew prune"
+  alias brew_update="brew update && brew upgrade && brew cask upgrade && brew cleanup && brew prune"
 fi
 ### Brew ###
