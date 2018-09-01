@@ -35,17 +35,22 @@ function packages {
 
   echo "Installing required packages"
   # shellcheck disable=SC2086
-  brew install ${required} # word splitting is intended here
+  if [ "$1" = true ]; then
+    brew install ${required}
 
-  echo "Do you want to install the optional packages as well?"
-  select yn in "Yes" "No"; do
-    # shellcheck disable=SC2086
-    case $yn in
-      "Yes") brew install ${optional}; break;;
-      "No") return 0;;
-      *) echo "Invalid option";;
-    esac
-  done
+    echo "Do you want to install the optional packages as well?"
+    select yn in "Yes" "No"; do
+      # shellcheck disable=SC2086
+      case "${yn}" in
+        "Yes") brew install ${optional}; break;;
+        "No") return 0;;
+        *) echo "Invalid option";;
+      esac
+    done
+  else
+    brew uninstall ${required}
+    brew uninstall ${optional}
+  fi
 
   return 0
 }
@@ -58,14 +63,33 @@ function symlinks {
   symlinks=$(perl_re "${symlinks}" "${re} && print \$1")
   symlinks=$(join_lines "${symlinks}")
   # shellcheck disable=SC2086
-  stow --restow ${symlinks}
+  if [ "$1" = true ]; then
+    stow --restow ${symlinks}
+  else
+    stow --delete ${symlinks}
+  fi
 
   return 0
 }
 
 function main {
-  packages
-  symlinks
+  echo "Do you want to install or uninstall the setup?"
+  select iu in "Install" "Uninstall"; do
+    case "${iu}" in
+      "Install")
+        packages true
+        symlinks true
+        break;;
+      "Uninstall")
+        packages false
+        symlinks false
+        break;;
+      *)
+        exit 0
+    esac
+  done
+
+  exit 0
 }
 
 main "$@"
