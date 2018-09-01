@@ -23,6 +23,9 @@ symlink farm.
 
 ## Packages
 
+[Homebrew](https://github.com/Homebrew/brew) or
+[Linuxbrew](https://github.com/Linuxbrew/brew)
+
 ### Required
 
 #### brew
@@ -44,6 +47,7 @@ symlink farm.
 * bat - cat Replacement - https://github.com/sharkdp/bat
 * prettyping - ping Replacement - https://github.com/denilsonsa/prettyping
 * tldr - Shell Command Usage Examples - https://github.com/tldr-pages/tldr
+* tree - Tree View For Directories - https://github.com/nodakai/tree-command
 
 #### cask
 
