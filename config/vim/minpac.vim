@@ -11,7 +11,6 @@ call minpac#add('tpope/vim-surround')
 call minpac#add('tpope/vim-fugitive')
 call minpac#add('tpope/vim-vinegar')
 call minpac#add('tpope/vim-commentary')
-call minpac#add('tpope/vim-dispatch')
 call minpac#add('tpope/vim-eunuch')
 
 call minpac#add('romainl/vim-qf')
@@ -20,7 +19,6 @@ call minpac#add('romainl/vim-qlist')
 
 call minpac#add('jnurmine/Zenburn')
 
-call minpac#add('wsdjeg/FlyGrep.vim')
 call minpac#add('airblade/vim-gitgutter')
 call minpac#add('w0rp/ale')
 
