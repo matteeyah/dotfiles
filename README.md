@@ -5,9 +5,9 @@ Personal dotfiles
 ## Usage
 
 To set up the dotfiles just clone this repo and run the setup script.
-you want.
+
 ```bash
-git clone https://github.com/matteeyah/dotfiles ~/.dotfiles
+git clone git@github.com:matteeyah/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
 ```
 
@@ -18,7 +18,7 @@ symlink farm.
 
 The script uses this README to figure out which packages to install and which
 files to symlink. Because of this the format of this README should always
-reflect what the script is looking for.
+stay the same.
 
 If you want to add a symlink or package, please add it to the README following
 the already defined format.
