@@ -28,16 +28,12 @@ set wildmode=longest:full,full " expand to the longest match, then show wildmenu
 set mousehide " hide mouse when typing
 
 if has('clipboard')
-  if has('unnamedplus')  " when possible use + register for copy-paste
+  if has('unnamedplus') " when possible use + register for copy-paste
     set clipboard=unnamed,unnamedplus
-  else         " if + isn't available, use * register for copy-paste
+  else " if + isn't available, use * register for copy-paste
     set clipboard=unnamed
   endif
 endif
-
-""" autocommands
-" when editing a commit message set cursor position to top line
-autocmd FileType gitcommit autocmd! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0]) | setlocal spell
 
 """ theme
 colorscheme zenburn
@@ -61,17 +57,19 @@ if executable("rg")
   set grepprg=rg\ --vimgrep
   set grepformat^=%f:%l:%c:%m
 endif
-" ale
-let g:ale_sign_column_always = 1
-let g:ale_lint_on_text_changed = 'never'
-let g:ale_lint_on_enter = 0
-let g:ale_lint_on_save = 1
 " vim-qf
 let g:qf_statusline = {}
 let g:qf_statusline.before = '%<\ '
 let g:qf_statusline.after = '\ %f%=%l\/%-6L\ \ \ \ \ '
 " vim-cool
 let g:CoolTotalMatches = 1
+
+""" FileType
+" git - when editing a commit message set cursor position to top line and enable spellchecking
+autocmd FileType gitcommit autocmd! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0]) | setlocal spell
+" ruby
+autocmd FileType ruby setlocal formatprg=bundle\ exec\ rubocop\ --out\ /dev/null\ --auto-correct\ --stdin\ %\ \|\ tail\ +2
+autocmd FileType ruby setlocal makeprg=bundle\ exec\ rubocop\ --format\ emacs\ %
 
 """ statusline
 source ~/.dotfiles/config/vim/statusline.vim
