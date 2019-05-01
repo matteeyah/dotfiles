@@ -96,6 +96,6 @@ export LANG=en_US.UTF-8
 
 ### Brew ###
 if command -v brew; then
-  alias brew_update="brew update && brew upgrade && brew cask upgrade && brew cleanup && brew prune"
+  alias brew_update="brew update && brew upgrade && brew cask upgrade && brew cleanup"
 fi
 ### Brew ###
