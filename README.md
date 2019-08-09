@@ -4,12 +4,24 @@ Personal dotfiles
 
 ## Usage
 
-To set up the dotfiles just clone this repo and run the setup script.
-
-```bash
-git clone git@github.com:matteeyah/dotfiles.git ~/.dotfiles
-cd ~/.dotfiles
-```
+- Install brew - https://brew.sh/
+- Set up ssh
+  - Install OpenSSH - `brew install openssh`
+  - Download the public key to `~/.ssh/id_rsa.pub`
+  - Download the private key to `~/.ssh/id_rsa`
+- Set up GPG
+  - Install GPG - `brew install gpg`
+  - Download the public and private keys
+  - Import the public key - `gpg --import public.key`
+  - Import the private key - `gpg --allow-secret-key-import --import private.key`
+- Clone the dotfiles
+  - `git clone git@github.com:matteeyah/dotfiles.git ~/.dotfiles`
+- Run the setup script
+- Install minpac - https://github.com/k-takata/minpac
+  - `git clone https://github.com/k-takata/minpac.git ~/.vim/pack/minpac/opt/minpac`
+- Set up the terminal profile
+  - Set the theme to `Zenburn`
+  - Set the font to `Fira Code Regular 16`
 
 This repo is structured as a [GNU Stow](https://www.gnu.org/software/stow/)
 symlink farm.
