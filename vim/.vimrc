@@ -68,8 +68,9 @@ let g:CoolTotalMatches = 1
 " git - when editing a commit message set cursor position to top line and enable spellchecking
 autocmd FileType gitcommit autocmd! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0]) | setlocal spell
 " ruby
-autocmd FileType ruby setlocal formatprg=bundle\ exec\ rubocop\ --out\ /dev/null\ --auto-correct\ --stdin\ %\ \|\ tail\ +2
+autocmd FileType ruby,rspec setlocal formatprg=bundle\ exec\ rubocop\ --out\ /dev/null\ --auto-correct\ --stdin\ %\ \|\ tail\ +2
 autocmd FileType ruby setlocal makeprg=bundle\ exec\ rubocop\ --format\ emacs\ %
+autocmd FileType rspec setlocal makeprg=bundle\ exec\ rspec\ --require\ ~/.dotfiles/config/vim/quickfix_formatter.rb\ --format\ QuickfixFormatter\ 1>/dev/null\ %
 
 """ statusline
 source ~/.dotfiles/config/vim/statusline.vim

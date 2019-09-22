@@ -14,6 +14,8 @@ call minpac#add('tpope/vim-commentary')
 call minpac#add('tpope/vim-dispatch')
 call minpac#add('tpope/vim-eunuch')
 
+call minpac#add('mikbe/rspec.vim')
+
 call minpac#add('romainl/vim-qf')
 call minpac#add('romainl/vim-cool')
 call minpac#add('romainl/vim-qlist')
