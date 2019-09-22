@@ -23,6 +23,9 @@ call minpac#add('romainl/vim-qlist')
 
 call minpac#add('jnurmine/Zenburn')
 
+set rtp+=/usr/local/opt/fzf
+call minpac#add('junegunn/fzf.vim')
+
 call minpac#add('airblade/vim-gitgutter')
 
 command! PackUpdate call minpac#update()

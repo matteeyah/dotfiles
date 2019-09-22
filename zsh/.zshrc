@@ -53,10 +53,10 @@ export TMUX_SHELL
 
 ### fzf ###
 if command -v fzf; then
+  export FZF_DEFAULT_COMMAND='fd --type f --hidden --exclude .git'
+
   if command -v bat; then
-    alias preview="fzf --preview 'bat --color \"always\" {}'"
-  else
-    alias preview="fzf --preview 'cat {}'"
+    export FZF_DEFAULT_OPTS="--preview 'bat --color=always --theme=zenburn {}'"
   fi
 fi
 ### fzf ###
