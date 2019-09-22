@@ -13,6 +13,7 @@ call minpac#add('tpope/vim-vinegar')
 call minpac#add('tpope/vim-commentary')
 call minpac#add('tpope/vim-dispatch')
 call minpac#add('tpope/vim-eunuch')
+call minpac#add('tpope/vim-unimpaired')
 
 call minpac#add('mikbe/rspec.vim')
 
