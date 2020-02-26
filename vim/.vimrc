@@ -50,6 +50,9 @@ nnoremap <leader>gw :Gwrite<CR>
 nnoremap <leader>gl :Glog<CR>
 nnoremap <leader>gb :Gblame<CR>
 nnoremap <leader>gi :Git add -p %<CR>
+" fzf
+nnoremap <leader>fg :GFiles<CR>
+nnoremap <leader>ft :Tags<CR>
 
 """ setup
 " grep
