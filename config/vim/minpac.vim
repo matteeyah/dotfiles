@@ -9,16 +9,15 @@ call minpac#add('tpope/vim-sensible') " sensible defaults
 call minpac#add('tpope/vim-sleuth') " automatically set tab width
 call minpac#add('tpope/vim-surround') " motions for surrounding pairs
 call minpac#add('tpope/vim-fugitive') " git
-call minpac#add('tpope/vim-vinegar') " file navigation with -
 call minpac#add('tpope/vim-commentary') " easy commenting
 call minpac#add('tpope/vim-dispatch') " async command execution
 call minpac#add('tpope/vim-eunuch') " wrapper for shell commands
 call minpac#add('tpope/vim-unimpaired') " paired mappings
 call minpac#add('tpope/vim-projectionist') " project file types configuration
 
-call minpac#add('airblade/vim-gitgutter') " gutter git signs
-call minpac#add('easymotion/vim-easymotion') " special navigation motion
 call minpac#add('jnurmine/Zenburn') " color scheme
+call minpac#add('justinmk/vim-dirvish') " better file navigator
+call minpac#add('justinmk/vim-sneak') " jump motion
 call minpac#add('keith/rspec.vim') " rspec syntax
 call minpac#add('romainl/vim-qf') " quickfix mappings
 call minpac#add('romainl/vim-cool') " interactive search match count

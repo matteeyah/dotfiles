@@ -60,12 +60,14 @@ if executable("rg")
   set grepprg=rg\ --vimgrep
   set grepformat^=%f:%l:%c:%m
 endif
+" vim-cool
+let g:CoolTotalMatches = 1
+" vim-sneak
+let g:sneak#label = 1
 " vim-qf
 let g:qf_statusline = {}
 let g:qf_statusline.before = '%<\ '
 let g:qf_statusline.after = '\ %f%=%l\/%-6L\ \ \ \ \ '
-" vim-cool
-let g:CoolTotalMatches = 1
 
 """ FileType
 " git - when editing a commit message set cursor position to top line and enable spellchecking
