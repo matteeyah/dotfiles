@@ -65,9 +65,8 @@ the already defined format.
 * fzf - Fuzzy Completer - https://github.com/junegunn/fzf
 * fd - find Replacement - https://github.com/sharkdp/fd
 * bat - cat Replacement - https://github.com/sharkdp/bat
-* prettyping - ping Replacement - https://github.com/denilsonsa/prettyping
-* tldr - Shell Command Usage Examples - https://github.com/tldr-pages/tldr
-* tree - Tree View For Directories - https://github.com/nodakai/tree-command
+* exa - ld Replacement -  https://github.com/ogham/exa
+* delta - diff highlighting - https://github.com/dandavison/delta
 
 #### cask
 
