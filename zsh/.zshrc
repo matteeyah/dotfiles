@@ -26,23 +26,12 @@ bindkey '^x^e' edit-command-line
 source ~/.dotfiles/config/zsh/clean.zsh-theme
 ### Theme ###
 
-### Functions ###
-source ~/.dotfiles/config/zsh/functions.sh
-### Functions ###
-
 ### Variables ###
 # The current user is the default user
 DEFAULT_USER="$(whoami)"
 export DEFAULT_USER
 # Enable CLI colors
-case "$(uname)" in
-  "Darwin")
-    export CLICOLOR=1
-    ;;
-  "Linux")
-    alias ls='ls --color=auto'
-    ;;
-esac
+export CLICOLOR=1
 # Use vim as the default editor
 export EDITOR="vim"
 GPG_TTY="$(tty)"
@@ -76,7 +65,7 @@ fi
 ### Python ###
 
 ### Node ###
-# Set up pyenv if installed
+# Set up nodenv if installed
 if command -v nodenv; then
   eval "$(nodenv init -)"
 fi
@@ -96,6 +85,6 @@ export LANG=en_US.UTF-8
 
 ### Brew ###
 if command -v brew; then
-  alias brew_update="brew update && brew upgrade && brew cask upgrade && brew cleanup"
+  alias brew_auto="brew update && brew upgrade && brew upgrade --cask && brew cleanup"
 fi
 ### Brew ###
