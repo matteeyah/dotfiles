@@ -1,6 +1,6 @@
 set statusline=
 set statusline+=%#StatusLine#
-set statusline+=%(\ %{fugitive#head()}\ %)
+set statusline+=%(\ %{gitbranch#name()}\ %)
 set statusline+=%#Normal#
 set statusline+=\ %f\ %h%w%m
 set statusline+=%#StatusLine#

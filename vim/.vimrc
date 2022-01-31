@@ -38,22 +38,6 @@ endif
 """ theme
 colorscheme zenburn
 
-""" mappings
-let mapleader="," " set <leader> key to <,>
-" fugitive
-nnoremap <leader>gs :Gstatus<CR>
-nnoremap <leader>gp :Gpull<CR>
-nnoremap <leader>gu :Gpush<CR>
-nnoremap <leader>gc :Gcommit<CR>
-nnoremap <leader>gr :Gread<CR>
-nnoremap <leader>gw :Gwrite<CR>
-nnoremap <leader>gl :Glog<CR>
-nnoremap <leader>gb :Gblame<CR>
-nnoremap <leader>gi :Git add -p %<CR>
-" fzf
-nnoremap <leader>fg :GFiles<CR>
-nnoremap <leader>ft :Tags<CR>
-
 """ setup
 " grep
 if executable("rg")
@@ -73,9 +57,6 @@ let g:qf_statusline.after = '\ %f%=%l\/%-6L\ \ \ \ \ '
 " git - when editing a commit message set cursor position to top line and enable spellchecking
 autocmd FileType gitcommit autocmd! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0]) | setlocal spell
 " ruby
-autocmd FileType ruby setlocal formatprg=bundle\ exec\ rubocop\ --out\ /dev/null\ --auto-correct\ --stdin\ %\ \|\ tail\ +2
-autocmd BufNewFile,BufRead *.rb setlocal makeprg=bundle\ exec\ rubocop\ --format\ emacs\ %
-autocmd BufNewFile,BufRead *_spec.rb setlocal makeprg=bundle\ exec\ rspec\ --require\ ~/.dotfiles/config/vim/quickfix_formatter.rb\ --format\ QuickfixFormatter\ 1>/dev/null\ %
 
 """ statusline
 source ~/.dotfiles/config/vim/statusline.vim
