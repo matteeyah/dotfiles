@@ -1,12 +1,12 @@
-### Antigen ###
-source /usr/local/share/antigen/antigen.zsh
+### zinit ###
+source /usr/local/opt/zinit/zinit.zsh
 # Syntax highlighting bundle
-antigen bundle zdharma/fast-syntax-highlighting
-# Completions bundle
-antigen bundle zsh-users/zsh-completions
-# Tell Antigen that you're done.
-antigen apply
-### Antigen ###
+zinit light zdharma-continuum/fast-syntax-highlighting
+# # Completions bundle
+zinit light zsh-users/zsh-completions
+# # Better Ctrl+R search
+zinit light zdharma-continuum/history-search-multi-word
+### zinit ###
 
 ### zsh core ###
 autoload -U edit-command-line compinit
@@ -97,6 +97,6 @@ export LANG=en_US.UTF-8
 
 ### Brew ###
 if command -v brew; then
-  alias brew_auto="brew update && brew upgrade && brew upgrade --cask && brew cleanup"
+  alias brew_auto="brew update && brew upgrade && brew cleanup"
 fi
 ### Brew ###
