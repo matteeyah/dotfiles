@@ -100,3 +100,5 @@ if command -v brew; then
   alias brew_auto="brew update && brew upgrade && brew cleanup"
 fi
 ### Brew ###
+
+eval "$(ssh-agent)"

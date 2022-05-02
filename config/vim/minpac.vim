@@ -6,6 +6,7 @@ call minpac#init()
 call minpac#add('k-takata/minpac', {'type': 'opt'}) " package manager
 
 call minpac#add('tpope/vim-endwise') " automaticly add matching keywords
+call minpac#add('tpope/vim-projectionist') " easy related file navigation
 call minpac#add('tpope/vim-sensible') " sensible defaults
 call minpac#add('tpope/vim-sleuth') " automatically set tab width
 call minpac#add('tpope/vim-surround') " motions for surrounding pairs
