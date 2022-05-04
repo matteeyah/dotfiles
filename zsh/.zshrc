@@ -1,5 +1,19 @@
+### Locales ###
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+export LANGUAGE=en_US.UTF-8
+### Locales ###
+
+### Brew ###
+eval "$(/opt/homebrew/bin/brew shellenv)"
+if command -v brew; then
+  alias brew_auto="brew update && brew upgrade && brew cleanup"
+fi
+### Brew ###
+
 ### zinit ###
-source /usr/local/opt/zinit/zinit.zsh
+source "$(brew --prefix zinit)/zinit.zsh"
+source /opt/homebrew/opt/zinit/zinit.zsh
 # Syntax highlighting bundle
 zinit light zdharma-continuum/fast-syntax-highlighting
 # # Completions bundle
@@ -50,6 +64,12 @@ if command -v fzf; then
 fi
 ### fzf ###
 
+### asdf ###
+if command -v asdf; then
+  source "$(brew --prefix asdf)/asdf.sh"
+fi
+### asdf ###
+
 ### Ruby ###
 # Set up rbenv if installed
 if command -v rbenv; then
@@ -90,15 +110,6 @@ if command -v go; then
 fi
 ### Go ###
 
-### Locales ###
-export LC_ALL=en_US.UTF-8
-export LANG=en_US.UTF-8
-### Locales ###
-
-### Brew ###
-if command -v brew; then
-  alias brew_auto="brew update && brew upgrade && brew cleanup"
-fi
-### Brew ###
-
+### SSH ###
 eval "$(ssh-agent)"
+### SSH ###
