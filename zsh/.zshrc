@@ -6,9 +6,6 @@ export LANGUAGE=en_US.UTF-8
 
 ### Brew ###
 eval "$(/opt/homebrew/bin/brew shellenv)"
-if command -v brew; then
-  alias brew_auto="brew update && brew upgrade && brew cleanup"
-fi
 ### Brew ###
 
 ### zinit ###
