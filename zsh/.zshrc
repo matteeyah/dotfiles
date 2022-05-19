@@ -10,7 +10,6 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 
 ### zinit ###
 source "$(brew --prefix zinit)/zinit.zsh"
-source /opt/homebrew/opt/zinit/zinit.zsh
 # Syntax highlighting bundle
 zinit light zdharma-continuum/fast-syntax-highlighting
 # # Completions bundle
@@ -67,46 +66,10 @@ if command -v asdf; then
 fi
 ### asdf ###
 
-### Ruby ###
-# Set up rbenv if installed
-if command -v rbenv; then
-  eval "$(rbenv init - zsh)"
-fi
-### Ruby ###
-
-### Python ###
-# Set up pyenv if installed
-if command -v pyenv; then
-  eval "$(pyenv init - zsh)"
-fi
-### Python ###
-
-### Node ###
-# Set up nodenv if installed
-if command -v nodenv; then
-  eval "$(nodenv init - zsh)"
-fi
-### Node ###
-
-### Elixir ###
-if command -v exenv; then
-  eval "$(exenv init - zsh)"
-fi
-### Elixir ###
-
-### Java ###
-if command -v jenv; then
-  eval "$(jenv init - zsh)"
-fi
-### Java ###
-
-### Go ###
-if command -v go; then
-  export GOPATH="${HOME}/Projects/go"
-  export PATH="${PATH}:${GOPATH}/bin"
-fi
-### Go ###
-
 ### SSH ###
 eval "$(ssh-agent)"
 ### SSH ###
+
+### PostgreSQL@12 ###
+export PATH="/opt/homebrew/opt/postgresql@12/bin:$PATH"
+### PostgreSQL@12 ###
