@@ -62,7 +62,7 @@ fi
 
 ### asdf ###
 if command -v asdf; then
-  source "$(brew --prefix asdf)/asdf.sh"
+  source "$(brew --prefix asdf)/libexec/asdf.sh"
 fi
 ### asdf ###
 
