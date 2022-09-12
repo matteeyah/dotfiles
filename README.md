@@ -55,7 +55,6 @@ the already defined format.
 * git - Version Control - https://github.com/git/git
 * ripgrep - grep Replacment - https://github.com/BurntSushi/ripgrep
 * tmux - Terminal Multiplexer - https://github.com/tmux/tmux/
-* antigen - Shell Configuration Manager - https://github.com/zsh-users/antigen
 * stow - Symlink Farm Manager - https://www.gnu.org/software/stow/
 
 ### Optional
