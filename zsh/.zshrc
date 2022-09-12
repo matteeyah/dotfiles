@@ -5,11 +5,19 @@ export LANGUAGE=en_US.UTF-8
 ### Locales ###
 
 ### Brew ###
-eval "$(/opt/homebrew/bin/brew shellenv)"
+if command -v brew; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
 ### Brew ###
 
 ### zinit ###
-source "$(brew --prefix zinit)/zinit.zsh"
+if command -v brew; then
+  ZINIT_HOME="$(brew --prefix zinit)"
+else
+  ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+fi
+
+source "${ZINIT_HOME}/zinit.zsh"
 # Syntax highlighting bundle
 zinit light zdharma-continuum/fast-syntax-highlighting
 # # Completions bundle
@@ -61,9 +69,13 @@ fi
 ### fzf ###
 
 ### asdf ###
-if command -v asdf; then
-  source "$(brew --prefix asdf)/libexec/asdf.sh"
+if command -v brew; then
+  ASDF_HOME="$(brew --prefix asdf)/libexec"
+else
+  ASDF_HOME="${HOME}/.asdf"
 fi
+
+source "${ASDF_HOME}/asdf.sh"
 ### asdf ###
 
 ### SSH ###
