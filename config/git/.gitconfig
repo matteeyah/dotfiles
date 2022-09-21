@@ -3,7 +3,7 @@
   name = Matija Čupić
   signingkey = 4BAF84FFACD2E5DE
 [core]
-  editor = vim
+  editor = nvim
   pager = delta
 [color]
   ui = true
