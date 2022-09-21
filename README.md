@@ -5,6 +5,8 @@ Personal dotfiles
 ## Usage
 
 - Install brew - https://brew.sh/
+  - Load `brew` in the current shell environment
+    - `eval "$(/opt/homebrew/bin/brew shellenv)"`
 - Set up ssh
   - Install OpenSSH - `brew install openssh` (only on macOS)
   - RSA SSH key
@@ -13,6 +15,9 @@ Personal dotfiles
   - ED25519-SK key
     - Download the public key to `~/.ssh/id_ed25519_sk.pub`
     - Download the private key to `~/.ssh/id_ed25519_sk`
+  - Add the SSH key to the SSH agent
+    - `eval $(ssh-agent)`
+    - `ssh-add`
 - Set up GPG
   - Install GPG - `brew install gpg` (only on macOS)
   - Download the public and private keys
@@ -22,31 +27,27 @@ Personal dotfiles
   - Import the private key - `gpg --allow-secret-key-import --import private.key`
 - Clone the dotfiles
   - `git clone git@github.com:matteeyah/dotfiles.git ~/.dotfiles`
-- Run the setup script
 - Install minpac - https://github.com/k-takata/minpac
   - `git clone https://github.com/k-takata/minpac.git ~/.vim/pack/minpac/opt/minpac`
 - Set up the terminal profile
-  - Set the theme to `Zenburn`
-  - Set the font to `Fira Code Regular 16`
+  - Download the `Zenburn` terminal config from the repo
+    - https://github.com/matteeyah/dotfiles/blob/master/Zenburn.terminal
+  - Set the default Terminal theme to `Zenburn`
 
-This repo is structured as a [GNU Stow](https://www.gnu.org/software/stow/)
-symlink farm.
-
-### Internals
-
-The script uses this README to figure out which packages to install and which
-files to symlink. Because of this the format of this README should always
-stay the same.
-
-If you want to add a symlink or package, please add it to the README following
-the already defined format.
+This repo is structured as a symlink farm.
 
 ### Available Configurations
 
 * git
+  - `ln -s ~/.dotfiles/config/git/.gitconfig ~/.gitconfig`
+* nvim
+  - `ln -s ~/.dotfiles/config/vim/.vimrc ~/.config/nvim/init.vim`
+* ssh
+  - `ln -s ~/.dotfiles/config/ssh/config ~/.ssh/config`
 * tmux
+  - `ln -s ~/.dotfiles/config/tmux/.tmux.confg ~/.tmux.conf`
 * zsh
-* vim
+  - `ln -s ~/.dotfiles/config/zsh/.zshrc ~/.zshrc`
 
 ## Packages
 
@@ -57,11 +58,12 @@ the already defined format.
 
 #### brew
 
-* zsh - Shell - https://github.com/zsh-users/zsh
+* asdf - Manage language runtimes - https://github.com/asdf-vm/asdf
 * git - Version Control - https://github.com/git/git
+* nvim - editor - https://github.com/neovim/neovim
 * ripgrep - grep Replacment - https://github.com/BurntSushi/ripgrep
-* tmux - Terminal Multiplexer - https://github.com/tmux/tmux/
-* stow - Symlink Farm Manager - https://www.gnu.org/software/stow/
+* zinit - zsh package manager - https://github.com/zdharma-continuum/zinit
+* zsh - Shell - https://github.com/zsh-users/zsh
 
 ### Optional
 
@@ -72,6 +74,8 @@ the already defined format.
 * bat - cat Replacement - https://github.com/sharkdp/bat
 * exa - ld Replacement -  https://github.com/ogham/exa
 * delta - diff highlighting - https://github.com/dandavison/delta
+* tmux - Terminal Multiplexer - https://github.com/tmux/tmux/
+* stow - Symlink Farm Manager - https://www.gnu.org/software/stow/
 
 #### cask
 

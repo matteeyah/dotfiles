@@ -5,9 +5,7 @@ export LANGUAGE=en_US.UTF-8
 ### Locales ###
 
 ### Brew ###
-if command -v brew; then
-  eval "$(/opt/homebrew/bin/brew shellenv)"
-fi
+eval "$(/opt/homebrew/bin/brew shellenv)"
 ### Brew ###
 
 ### zinit ###
