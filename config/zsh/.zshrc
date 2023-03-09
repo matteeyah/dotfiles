@@ -80,6 +80,6 @@ source "${ASDF_HOME}/asdf.sh"
 eval "$(ssh-agent)"
 ### SSH ###
 
-### PostgreSQL@12 ###
-export PATH="/opt/homebrew/opt/postgresql@12/bin:$PATH"
-### PostgreSQL@12 ###
+### PostgreSQL@15 ###
+export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
+### PostgreSQL@15 ###

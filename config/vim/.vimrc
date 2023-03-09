@@ -46,6 +46,8 @@ if executable("rg")
 endif
 " vim-cool
 let g:CoolTotalMatches = 1
+" vim-dirvish
+let g:dirvish_mode = ':sort ,^.*[\/],'
 " vim-sneak
 let g:sneak#label = 1
 " vim-qf
