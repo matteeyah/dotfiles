@@ -5,7 +5,9 @@ export LANGUAGE=en_US.UTF-8
 ### Locales ###
 
 ### Brew ###
-eval "$(/opt/homebrew/bin/brew shellenv)"
+if [[ $(uname) == "Darwin" ]]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
 ### Brew ###
 
 ### zinit ###
