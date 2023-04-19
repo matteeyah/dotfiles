@@ -48,6 +48,8 @@ This repo is structured as a symlink farm.
   - `ln -s ~/.dotfiles/config/tmux/.tmux.confg ~/.tmux.conf`
 * zsh
   - `ln -s ~/.dotfiles/config/zsh/.zshrc ~/.zshrc`
+* gpg (mac only)
+  - `ln -s ~/.dotfiles/config/gpg/gpg-agent.conf ~/.gnupg/gpg-agent.conf`
 
 ## Packages
 
