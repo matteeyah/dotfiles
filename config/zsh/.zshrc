@@ -11,7 +11,7 @@ fi
 ### Brew ###
 
 ### zinit ###
-if command -v brew; then
+if command -v brew >/dev/null; then
   ZINIT_HOME="$(brew --prefix zinit)"
 else
   ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
@@ -69,7 +69,7 @@ fi
 ### fzf ###
 
 ### asdf ###
-if command -v brew; then
+if command -v brew >/dev/null; then
   ASDF_HOME="$(brew --prefix asdf)/libexec"
 else
   ASDF_HOME="${HOME}/.asdf"
