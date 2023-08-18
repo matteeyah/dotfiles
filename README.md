@@ -27,8 +27,12 @@ Personal dotfiles
   - Import the private key - `gpg --allow-secret-key-import --import private.key`
 - Clone the dotfiles
   - `git clone git@github.com:matteeyah/dotfiles.git ~/.dotfiles`
+- Install zinit - https://github.com/zdharma-continuum/zinit
+  - `bash -c "$(curl --fail --show-error --silent --location https://raw.githubusercontent.com/zdharma-continuum/zinit/HEAD/scripts/install.sh)"`
+  - Make `zsh` your login shell with `chsh -s $(command -v zsh)`
 - Install minpac - https://github.com/k-takata/minpac
-  - `git clone https://github.com/k-takata/minpac.git ~/.vim/pack/minpac/opt/minpac`
+  - `git clone git@github.com:k-takata/minpac.git ~/.vim/pack/minpac/opt/minpac`
+  - Open `vim`/`neovim` and install plugins with `:PackUpdate`
 - Set up the terminal profile
   - Download the `Zenburn` terminal config from the repo
     - https://github.com/matteeyah/dotfiles/blob/master/Zenburn.terminal
