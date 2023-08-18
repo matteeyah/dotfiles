@@ -65,6 +65,9 @@ This repo is structured as a symlink farm.
 #### brew
 
 * asdf - Manage language runtimes - https://github.com/asdf-vm/asdf
+  - `git clone git@github.com:asdf-vm/asdf.git ~/.asdf`
+  - `asdf plugin add ruby`
+      - `sudo apt install build-essential libssql-dev libreadline-dev zlib1g-dev libyaml-dev libpq-dev` (linux only)
 * git - Version Control - https://github.com/git/git
 * nvim - editor - https://github.com/neovim/neovim
 * ripgrep - grep Replacment - https://github.com/BurntSushi/ripgrep
