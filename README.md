@@ -57,12 +57,7 @@ This repo is structured as a symlink farm.
 
 ## Packages
 
-[Homebrew](https://github.com/Homebrew/brew) or
-[Linuxbrew](https://github.com/Linuxbrew/brew)
-
 ### Required
-
-#### brew
 
 * asdf - Manage language runtimes - https://github.com/asdf-vm/asdf
   - `git clone git@github.com:asdf-vm/asdf.git ~/.asdf`
@@ -76,17 +71,11 @@ This repo is structured as a symlink farm.
 
 ### Optional
 
-#### brew
-
 * fzf - Fuzzy Completer - https://github.com/junegunn/fzf
 * fd - find Replacement - https://github.com/sharkdp/fd
 * bat - cat Replacement - https://github.com/sharkdp/bat
-* exa - ld Replacement -  https://github.com/ogham/exa
+* github-copilot-cli - Shell AI - https://www.npmjs.com/package/@githubnext/github-copilot-cli
 * delta - diff highlighting - https://github.com/dandavison/delta
 * tmux - Terminal Multiplexer - https://github.com/tmux/tmux/
-* stow - Symlink Farm Manager - https://www.gnu.org/software/stow/
-
-#### cask
-
 * font-fira-code - Font With Ligatures - https://github.com/tonsky/FiraCode
 * docker - Container Engine - https://github.com/docker/docker-ce

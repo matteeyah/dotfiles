@@ -11,12 +11,7 @@ fi
 ### Brew ###
 
 ### zinit ###
-if command -v brew >/dev/null; then
-  ZINIT_HOME="$(brew --prefix zinit)"
-else
-  ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
-fi
-
+ZINIT_HOME="${HOME}/.local/share/zinit/zinit.git"
 source "${ZINIT_HOME}/zinit.zsh"
 # Syntax highlighting bundle
 zinit light zdharma-continuum/fast-syntax-highlighting
@@ -68,6 +63,12 @@ if command -v fzf; then
 fi
 ### fzf ###
 
+### Copilot CLI ###
+if command -v github-copilot-cli >/dev/null; then
+  alias wts="github-copilot-cli what-the-shell"
+fi
+### Copilot CLI ###
+
 ### asdf ###
 if command -v brew >/dev/null; then
   ASDF_HOME="$(brew --prefix asdf)/libexec"
@@ -83,5 +84,7 @@ eval "$(ssh-agent)"
 ### SSH ###
 
 ### PostgreSQL@15 ###
-export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
+if command -v brew >/dev/null && brew info postgresql@15 >/dev/null; then
+  export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
+fi
 ### PostgreSQL@15 ###
