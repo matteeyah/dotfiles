@@ -11,3 +11,5 @@
   gpgsign = true
 [interactive]
   diffFilter = delta --color-only
+[alias]
+  pristine = !sh -c 'git checkout master && git branch | grep -v master | xargs git branch -D'
