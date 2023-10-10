@@ -77,5 +77,4 @@ This repo is structured as a symlink farm.
 * github-copilot-cli - Shell AI - https://www.npmjs.com/package/@githubnext/github-copilot-cli
 * delta - diff highlighting - https://github.com/dandavison/delta
 * tmux - Terminal Multiplexer - https://github.com/tmux/tmux/
-* font-fira-code - Font With Ligatures - https://github.com/tonsky/FiraCode
 * docker - Container Engine - https://github.com/docker/docker-ce
