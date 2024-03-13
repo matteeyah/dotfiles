@@ -59,6 +59,9 @@ let g:qf_statusline.after = '\ %f%=%l\/%-6L\ \ \ \ \ '
 " git - when editing a commit message set cursor position to top line and enable spellchecking
 autocmd FileType gitcommit autocmd! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0]) | setlocal spell
 " ruby
+autocmd BufReadPost *.jb set filetype=ruby
+" Clockfile
+autocmd BufReadPost */Clockfile set filetype=ruby
 
 """ statusline
 source ~/.dotfiles/config/vim/statusline.vim
