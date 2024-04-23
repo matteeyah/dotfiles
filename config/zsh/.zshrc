@@ -88,3 +88,7 @@ if command -v brew >/dev/null && brew info postgresql@15 >/dev/null; then
   export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
 fi
 ### PostgreSQL@15 ###
+
+### ObjC Config ###
+export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+### ObjC Config ###
