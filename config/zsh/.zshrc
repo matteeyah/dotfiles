@@ -70,13 +70,7 @@ fi
 ### Copilot CLI ###
 
 ### asdf ###
-if command -v brew >/dev/null; then
-  ASDF_HOME="$(brew --prefix asdf)/libexec"
-else
-  ASDF_HOME="${HOME}/.asdf"
-fi
-
-source "${ASDF_HOME}/asdf.sh"
+source "${HOME}/.asdf/asdf.sh"
 ### asdf ###
 
 ### SSH ###
