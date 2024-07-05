@@ -68,6 +68,7 @@ This repo is structured as a symlink farm.
 * ripgrep - grep Replacment - https://github.com/BurntSushi/ripgrep
 * zinit - zsh package manager - https://github.com/zdharma-continuum/zinit
 * zsh - Shell - https://github.com/zsh-users/zsh
+* pinentry-mac - Shell - https://github.com/GPGTools/pinentry
 
 ### Optional
 
