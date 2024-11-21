@@ -15,7 +15,6 @@ call minpac#add('tpope/vim-surround') " motions for surrounding pairs
 call minpac#add('tpope/vim-commentary') " easy commenting
 call minpac#add('tpope/vim-unimpaired') " paired mappings
 
-call minpac#add('github/copilot.vim')
 call minpac#add('itchyny/vim-gitbranch') " git branch without fugitive
 call minpac#add('jnurmine/Zenburn') " color scheme
 call minpac#add('justinmk/vim-dirvish') " better file navigator
