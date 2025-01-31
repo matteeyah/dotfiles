@@ -15,9 +15,9 @@ ZINIT_HOME="${HOME}/.local/share/zinit/zinit.git"
 source "${ZINIT_HOME}/zinit.zsh"
 # Syntax highlighting bundle
 zinit light zdharma-continuum/fast-syntax-highlighting
-# # Completions bundle
+# Completions bundle
 zinit light zsh-users/zsh-completions
-# # Better Ctrl+R search
+# Better Ctrl+R search
 zinit light zdharma-continuum/history-search-multi-word
 ### zinit ###
 
@@ -53,6 +53,26 @@ TMUX_SHELL="$(command -v zsh)"
 export TMUX_SHELL
 ### Variables ###
 
+### ObjC Config ###
+export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+### ObjC Config ###
+
+### SSH ###
+eval "$(ssh-agent)"
+### SSH ###
+
+### PostgreSQL@16 ###
+if command -v brew >/dev/null && brew info postgresql@16 >/dev/null; then
+  export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
+fi
+### PostgreSQL@15 ###
+
+### asdf ###
+if [ -d "${HOME}/.asdf" ]; then
+  source "${HOME}/.asdf/asdf.sh"
+fi
+### asdf ###
+
 ### fzf ###
 if command -v fzf; then
   export FZF_DEFAULT_COMMAND='fd --type f --hidden --exclude .git'
@@ -68,21 +88,3 @@ if command -v github-copilot-cli >/dev/null; then
   alias wts="github-copilot-cli what-the-shell"
 fi
 ### Copilot CLI ###
-
-### asdf ###
-source "${HOME}/.asdf/asdf.sh"
-### asdf ###
-
-### SSH ###
-eval "$(ssh-agent)"
-### SSH ###
-
-### PostgreSQL@15 ###
-if command -v brew >/dev/null && brew info postgresql@15 >/dev/null; then
-  export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
-fi
-### PostgreSQL@15 ###
-
-### ObjC Config ###
-export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
-### ObjC Config ###

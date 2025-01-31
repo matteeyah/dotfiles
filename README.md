@@ -9,22 +9,23 @@ Personal dotfiles
     - `eval "$(/opt/homebrew/bin/brew shellenv)"`
 - Set up ssh
   - Install OpenSSH - `brew install openssh` (only on macOS)
-  - RSA SSH key
-    - Download the public key to `~/.ssh/id_rsa.pub`
-    - Download the private key to `~/.ssh/id_rsa`
   - ED25519-SK key
     - Download the public key to `~/.ssh/id_ed25519_sk.pub`
     - Download the private key to `~/.ssh/id_ed25519_sk`
+        - Change the permissions of the private key `chmod 600 ~/.ssh/id_rsa`
   - Add the SSH key to the SSH agent
     - `eval $(ssh-agent)`
     - `ssh-add`
 - Set up GPG
-  - Install GPG - `brew install gpg` (only on macOS)
+  - Install GPG (only on macOS)
+      - `brew install gpg`
   - Download the public and private keys
-  - Set up SmartCard Daemon (only on Linux)
-    - https://blog.programster.org/yubikey-link-with-gpg
-  - Import the public key - `gpg --import public.key`
-  - Import the private key - `gpg --allow-secret-key-import --import private.key`
+  - Set up SmartCard Daemon (only on Linux) - https://blog.programster.org/yubikey-link-with-gpg
+      - `sudo apt install scdaemon`
+  - Import the public key
+      - `gpg --import public.key`
+  - Import the private key
+      - `gpg --allow-secret-key-import --import private.key`
 - Clone the dotfiles
   - `git clone git@github.com:matteeyah/dotfiles.git ~/.dotfiles`
 - Install zinit - https://github.com/zdharma-continuum/zinit
