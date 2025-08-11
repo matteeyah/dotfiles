@@ -61,11 +61,11 @@ export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 eval "$(ssh-agent)"
 ### SSH ###
 
-### PostgreSQL@16 ###
-if command -v brew >/dev/null && brew info postgresql@16 >/dev/null; then
-  export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
+### PostgreSQL@17 ###
+if command -v brew >/dev/null && brew info postgresql@17 >/dev/null; then
+  export PATH="/opt/homebrew/opt/postgresql@17/bin:$PATH"
 fi
-### PostgreSQL@15 ###
+### PostgreSQL@17 ###
 
 ### asdf ###
 if [ -d "${HOME}/.asdf" ]; then
@@ -73,18 +73,38 @@ if [ -d "${HOME}/.asdf" ]; then
 fi
 ### asdf ###
 
-### fzf ###
-if command -v fzf; then
-  export FZF_DEFAULT_COMMAND='fd --type f --hidden --exclude .git'
+### pnpm ###
+export PNPM_HOME="/Users/matteeyah/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+### pnpm ###
 
-  if command -v bat; then
+### fzf ###
+source <(fzf --zsh)
+if command -v fzf >/dev/null; then
+  export FZF_DEFAULT_COMMAND='fd --type f --hidden --exclude .git'
+  export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
+  if command -v bat >/dev/null; then
     export FZF_DEFAULT_OPTS="--preview 'bat --color=always --theme=zenburn {}'"
   fi
 fi
 ### fzf ###
 
-### Copilot CLI ###
-if command -v github-copilot-cli >/dev/null; then
-  alias wts="github-copilot-cli what-the-shell"
-fi
-### Copilot CLI ###
+### GitHub Copilot ###
+eval "$(gh copilot alias -- zsh)"
+### GitHub Copilot ###
+
+### TicketSolve ###
+export PATH="/opt/homebrew/opt/mysql@8.0/bin:$PATH"
+export TSPATH="/Users/matteeyah/Projects/ticketsolve"
+export PATH="$(brew --prefix gnu-getopt)/bin:$PATH"
+export PATH="$(brew --prefix findutils)/libexec/gnubin:$PATH"
+export PATH="$(brew --prefix grep)/libexec/gnubin:$PATH"
+export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
+export PATH="$TSPATH/extra/admin_scripts:$PATH"
+export PATH=/Applications/SnowSQL.app/Contents/MacOS:$PATH
+export TS_ENABLE_RUBY_DEBUG="true"
+### TicketSolve ###

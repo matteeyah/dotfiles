@@ -4,3 +4,11 @@ Host *
   IdentityFile ~/.ssh/id_ed25519_sk
   ForwardAgent yes
 
+Host *.ts.int 10.8.*
+  Compression yes
+  Port 33321
+  IdentityFile ~/.ssh/id_ed25519
+  StrictHostKeyChecking no
+  UserKnownHostsFile=/dev/null
+  LogLevel QUIET
+
