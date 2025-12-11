@@ -107,4 +107,5 @@ export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
 export PATH="$TSPATH/extra/admin_scripts:$PATH"
 export PATH=/Applications/SnowSQL.app/Contents/MacOS:$PATH
 export TS_ENABLE_RUBY_DEBUG="true"
+export DUMP_VANILLA="true"
 ### TicketSolve ###

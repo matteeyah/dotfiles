@@ -1,5 +1,5 @@
 [user]
-  email = matteeyah@gmail.com
+  email = mail@matteeyah.com
   name = Matija Čupić
   signingkey = 4BAF84FFACD2E5DE
 [core]
@@ -13,3 +13,5 @@
   diffFilter = delta --color-only
 [alias]
   pristine = !sh -c 'git checkout master && git branch | grep -v master | xargs git branch -D'
+[merge]
+  conflictStyle = zdiff3
