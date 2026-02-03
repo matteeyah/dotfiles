@@ -93,10 +93,6 @@ if command -v fzf >/dev/null; then
 fi
 ### fzf ###
 
-### GitHub Copilot ###
-eval "$(gh copilot alias -- zsh)"
-### GitHub Copilot ###
-
 ### TicketSolve ###
 export PATH="/opt/homebrew/opt/mysql@8.0/bin:$PATH"
 export TSPATH="/Users/matteeyah/Projects/ticketsolve"
