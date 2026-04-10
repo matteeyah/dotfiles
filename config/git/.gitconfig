@@ -5,13 +5,20 @@
 [core]
   editor = nvim
   pager = delta
-[color]
-  ui = true
-[commit]
-  gpgsign = true
 [interactive]
   diffFilter = delta --color-only
-[alias]
-  pristine = !sh -c 'git checkout master && git branch | grep -v master | xargs git branch -D'
+[color]
+  ui = true
+[delta]
+  navigate = true  # use n and N to move between diff sections
+  line-numbers = true
+[interactive]
+  diffFilter = delta --color-only
+[commit]
+  gpgsign = true
 [merge]
   conflictStyle = zdiff3
+[rebase]
+    updateRefs = true
+[alias]
+  pristine = !sh -c 'git checkout master && git branch | grep -v master | xargs git branch -D'
