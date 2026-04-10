@@ -61,11 +61,11 @@ export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 eval "$(ssh-agent)"
 ### SSH ###
 
-### PostgreSQL@17 ###
-if command -v brew >/dev/null && brew info postgresql@17 >/dev/null; then
-  export PATH="/opt/homebrew/opt/postgresql@17/bin:$PATH"
+### PostgreSQL@18 ###
+if command -v brew >/dev/null && brew info postgresql@18 >/dev/null; then
+  export PATH="/opt/homebrew/opt/postgresql@18/bin:$PATH"
 fi
-### PostgreSQL@17 ###
+### PostgreSQL@18 ###
 
 ### asdf ###
 if [ -d "${HOME}/.asdf" ]; then
@@ -80,6 +80,10 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 ### pnpm ###
+
+### pipx ###
+export PATH="$PATH:/Users/matteeyah/.local/bin"
+### pipx ###
 
 ### fzf ###
 source <(fzf --zsh)
