@@ -1,5 +1,27 @@
 """ plugins
-source ~/.dotfiles/config/vim/minpac.vim
+lua << EOF
+vim.pack.add({
+  -- tpope plugins
+  { src = "https://github.com/tpope/vim-endwise" },
+  { src = "https://github.com/tpope/vim-eunuch" },
+  { src = "https://github.com/tpope/vim-projectionist" },
+  { src = "https://github.com/tpope/vim-rails" },
+  { src = "https://github.com/tpope/vim-sensible" },
+  { src = "https://github.com/tpope/vim-sleuth" },
+  { src = "https://github.com/tpope/vim-surround" },
+  { src = "https://github.com/tpope/vim-commentary" },
+  { src = "https://github.com/tpope/vim-unimpaired" },
+
+  -- others
+  { src = "https://github.com/itchyny/vim-gitbranch" },
+  { src = "https://github.com/jnurmine/Zenburn" },
+  { src = "https://github.com/justinmk/vim-dirvish" },
+  { src = "https://github.com/justinmk/vim-sneak" },
+  { src = "https://github.com/keith/rspec.vim" },
+  { src = "https://github.com/romainl/vim-qf" },
+  { src = "https://github.com/romainl/vim-cool" },
+})
+EOF
 
 """ options
 set encoding=utf-8 " use unicode encoding
@@ -65,3 +87,4 @@ autocmd BufReadPost */Clockfile set filetype=ruby
 
 """ statusline
 source ~/.dotfiles/config/vim/statusline.vim
+
