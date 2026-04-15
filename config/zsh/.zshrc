@@ -46,7 +46,7 @@ export DEFAULT_USER
 # Enable CLI colors
 export CLICOLOR=1
 # Use vim as the default editor
-export EDITOR="vim"
+export EDITOR="nvim"
 GPG_TTY="$(tty)"
 export GPG_TTY
 TMUX_SHELL="$(command -v zsh)"
