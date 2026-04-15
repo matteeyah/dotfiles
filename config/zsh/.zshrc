@@ -36,7 +36,7 @@ bindkey '^x^e' edit-command-line
 ### zsh core ###
 
 ### Theme ###
-source ~/.dotfiles/config/zsh/clean.zsh-theme
+source "${HOME}/.dotfiles/config/zsh/clean.zsh-theme"
 ### Theme ###
 
 ### Variables ###
@@ -59,6 +59,7 @@ export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 
 ### SSH ###
 eval "$(ssh-agent)"
+export SSH_AUTH_SOCK="${HOME}/.ssh/proton-pass-agent.sock"
 ### SSH ###
 
 ### PostgreSQL@18 ###
@@ -74,7 +75,7 @@ fi
 ### asdf ###
 
 ### pnpm ###
-export PNPM_HOME="/Users/matteeyah/Library/pnpm"
+export PNPM_HOME="#${HOME}/Library/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
@@ -82,7 +83,7 @@ esac
 ### pnpm ###
 
 ### pipx ###
-export PATH="$PATH:/Users/matteeyah/.local/bin"
+export PATH="$PATH:${HOME}/.local/bin"
 ### pipx ###
 
 ### fzf ###
@@ -97,9 +98,13 @@ if command -v fzf >/dev/null; then
 fi
 ### fzf ###
 
+### Claude ###
+alias claude-re="CLAUDE_CONFIG_DIR=${HOME}/.claude-re claude"
+### Claude ###
+
 ### TicketSolve ###
 export PATH="/opt/homebrew/opt/mysql@8.0/bin:$PATH"
-export TSPATH="/Users/matteeyah/Projects/ticketsolve"
+export TSPATH="${HOME}/Projects/ticketsolve"
 export PATH="$(brew --prefix gnu-getopt)/bin:$PATH"
 export PATH="$(brew --prefix findutils)/libexec/gnubin:$PATH"
 export PATH="$(brew --prefix grep)/libexec/gnubin:$PATH"
@@ -108,4 +113,6 @@ export PATH="$TSPATH/extra/admin_scripts:$PATH"
 export PATH=/Applications/SnowSQL.app/Contents/MacOS:$PATH
 export TS_ENABLE_RUBY_DEBUG="true"
 export DUMP_VANILLA="true"
+export CLAUDE_CONFIG_DIR="${HOME}/.claude-ts"
+alias claude-ts="CLAUDE_CONFIG_DIR=${HOME}/.claude-ts claude"
 ### TicketSolve ###

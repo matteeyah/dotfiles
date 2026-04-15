@@ -8,14 +8,8 @@ Personal dotfiles
   - Load `brew` in the current shell environment
     - `eval "$(/opt/homebrew/bin/brew shellenv)"`
 - Set up ssh
-  - Install OpenSSH - `brew install openssh` (only on macOS)
-  - ED25519-SK key
-    - Download the public key to `~/.ssh/id_ed25519_sk.pub`
-    - Download the private key to `~/.ssh/id_ed25519_sk`
-        - Change the permissions of the private key `chmod 600 ~/.ssh/id_rsa`
-  - Add the SSH key to the SSH agent
-    - `eval $(ssh-agent)`
-    - `ssh-add`
+  - Install Proton Pass CLI - `brew install protonpass/tap/pass-cli`
+  - Start the Proton Pass CLI deamon - `proton-cli ssh-agent deamon start`
 - Set up GPG
   - Install GPG (only on macOS)
       - `brew install gpg`
@@ -31,9 +25,7 @@ Personal dotfiles
 - Install zinit - https://github.com/zdharma-continuum/zinit
   - `bash -c "$(curl --fail --show-error --silent --location https://raw.githubusercontent.com/zdharma-continuum/zinit/HEAD/scripts/install.sh)"`
   - Make `zsh` your login shell with `chsh -s $(command -v zsh)`
-- Install minpac - https://github.com/k-takata/minpac
-  - `git clone git@github.com:k-takata/minpac.git ~/.vim/pack/minpac/opt/minpac`
-  - Open `vim`/`neovim` and install plugins with `:PackUpdate`
+- Open `vim`/`neovim` and install plugins with `:lua vim.pack.update()`
 - Set up the terminal profile
   - Download the `Zenburn` terminal config from the repo
     - https://github.com/matteeyah/dotfiles/blob/master/Zenburn.terminal
@@ -50,7 +42,7 @@ This repo is structured as a symlink farm.
 * ssh
   - `ln -s ~/.dotfiles/config/ssh/config ~/.ssh/config`
 * tmux
-  - `ln -s ~/.dotfiles/config/tmux/.tmux.confg ~/.tmux.conf`
+  - `ln -s ~/.dotfiles/config/tmux/.tmux.conf ~/.tmux.conf`
 * zsh
   - `ln -s ~/.dotfiles/config/zsh/.zshrc ~/.zshrc`
 * gpg (mac only)
@@ -70,6 +62,7 @@ This repo is structured as a symlink farm.
 * zinit - zsh package manager - https://github.com/zdharma-continuum/zinit
 * zsh - Shell - https://github.com/zsh-users/zsh
 * pinentry-mac - Shell - https://github.com/GPGTools/pinentry
+* pass-cli - Shell - https://github.com/protonpass/pass-cli
 
 ### Optional
 
