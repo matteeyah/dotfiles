@@ -26,10 +26,9 @@ Personal dotfiles
   - `bash -c "$(curl --fail --show-error --silent --location https://raw.githubusercontent.com/zdharma-continuum/zinit/HEAD/scripts/install.sh)"`
   - Make `zsh` your login shell with `chsh -s $(command -v zsh)`
 - Open `vim`/`neovim` and install plugins with `:lua vim.pack.update()`
-- Set up the terminal profile
-  - Download the `Zenburn` terminal config from the repo
-    - https://github.com/matteeyah/dotfiles/blob/master/Zenburn.terminal
-  - Set the default Terminal theme to `Zenburn`
+- Set up Ghostty terminal emulator
+  - Install Ghostty - `brew install --cask ghostty`
+  - Symlink the config - `ln -s ~/.dotfiles/config/ghostty/config ~/.config/ghostty/config`
 
 This repo is structured as a symlink farm.
 
@@ -47,6 +46,8 @@ This repo is structured as a symlink farm.
   - `ln -s ~/.dotfiles/config/zsh/.zshrc ~/.zshrc`
 * gpg (mac only)
   - `ln -s ~/.dotfiles/config/gpg/gpg-agent.conf ~/.gnupg/gpg-agent.conf`
+* ghostty
+  - `ln -s ~/.dotfiles/config/ghostty/config ~/.config/ghostty/config`
 
 ## Packages
 
@@ -73,3 +74,4 @@ This repo is structured as a symlink farm.
 * delta - diff highlighting - https://github.com/dandavison/delta
 * tmux - Terminal Multiplexer - https://github.com/tmux/tmux/
 * docker - Container Engine - https://github.com/docker/docker-ce
+* ghostty - Terminal Emulator - https://github.com/ghostty-org/ghostty
