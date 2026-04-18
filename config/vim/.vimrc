@@ -14,7 +14,6 @@ vim.pack.add({
 
   -- others
   { src = "https://github.com/itchyny/vim-gitbranch" },
-  { src = "https://github.com/jnurmine/Zenburn" },
   { src = "https://github.com/justinmk/vim-dirvish" },
   { src = "https://github.com/justinmk/vim-sneak" },
   { src = "https://github.com/keith/rspec.vim" },
@@ -56,9 +55,6 @@ if has('clipboard')
     set clipboard=unnamed
   endif
 endif
-
-""" theme
-colorscheme zenburn
 
 """ setup
 " grep
