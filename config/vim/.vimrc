@@ -13,6 +13,8 @@ vim.pack.add({
   { src = "https://github.com/tpope/vim-unimpaired" },
 
   -- others
+  { src = "https://github.com/junegunn/fzf" },
+  { src = "https://github.com/junegunn/fzf.vim" },
   { src = "https://github.com/itchyny/vim-gitbranch" },
   { src = "https://github.com/justinmk/vim-dirvish" },
   { src = "https://github.com/justinmk/vim-sneak" },

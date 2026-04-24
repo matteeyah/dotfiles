@@ -19,6 +19,10 @@
 [merge]
   conflictStyle = zdiff3
 [rebase]
-    updateRefs = true
+  updateRefs = true
+[init]
+  defaultBranch = master
 [alias]
   pristine = !sh -c 'git checkout master && git branch | grep -v master | xargs git branch -D'
+  master = !git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@'
+  changed = "!f() { git diff \"${1:-HEAD~1}\"...HEAD --name-only; }; f"
