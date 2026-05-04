@@ -1,7 +1,7 @@
 [user]
   email = mail@matteeyah.com
   name = Matija Čupić
-  signingkey = 4BAF84FFACD2E5DE
+  signingkey = AB6E299831ADB7729DAB11A92E10AF695CED3C18
 [core]
   editor = nvim
   pager = delta

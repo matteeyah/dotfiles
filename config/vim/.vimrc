@@ -13,6 +13,7 @@ vim.pack.add({
   { src = "https://github.com/tpope/vim-unimpaired" },
 
   -- others
+  { src = 'https://github.com/neovim/nvim-lspconfig' },
   { src = "https://github.com/junegunn/fzf" },
   { src = "https://github.com/junegunn/fzf.vim" },
   { src = "https://github.com/itchyny/vim-gitbranch" },
@@ -22,6 +23,8 @@ vim.pack.add({
   { src = "https://github.com/romainl/vim-qf" },
   { src = "https://github.com/romainl/vim-cool" },
 })
+
+vim.lsp.enable("ruby_lsp")
 EOF
 
 """ options
@@ -85,4 +88,3 @@ autocmd BufReadPost */Clockfile set filetype=ruby
 
 """ statusline
 source ~/.dotfiles/config/vim/statusline.vim
-
